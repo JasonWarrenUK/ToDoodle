@@ -1,0 +1,22 @@
+:root{
+    
+
+}
+
+/* Utility classes */
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.stack-lg > *+* {
+  margin-top: 2rem;
+}
+.stack-md > *+* {
+  margin-top: 1rem;
+}
+.stack-sm > *+* {
+  margin-top: 0.5rem;
+}
