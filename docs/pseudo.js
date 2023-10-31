@@ -1,9 +1,32 @@
 //Pseudocode Workthroughs of Ideas
 
-let taskList = [];
+  let taskList = [];
+
+
+//Task Structure
+  let task = {
+    name: string,
+    due: date, default none,
+    type: string, default task,
+    do: date, default today,
+    status: string, default open,
+    importance: string, default normal,
+
+    //recurrence
+    recur: book, default false,
+    recurGap: int, default 1,
+    recurUnit: string, default day,
+    recurTrigger: eventListener, default status,
+    recurAnchor: property, default due,
+    end: ?,
+
+    //calculated
+    priority: days til due + importance
+  }
 
 
 //Adding Tasks
+
   const taskBox = document.getElementById("newTaskForm");
 
   const taskAdd = taskBox.getElement("button");
@@ -25,6 +48,7 @@ let taskList = [];
 
 
 //Filters & Views
+
   const listViews = document.getElementById("listViews");
 
   const listAll = listViews.getElementById("listAll");
