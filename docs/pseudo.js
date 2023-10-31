@@ -13,14 +13,15 @@ taskAdd.addEventListener(click) {
   addTask(stuff);
 }
 
-function addTask(name, due, do, status, priority) {
+function addTask(taskName, taskDue, taskDo, taskStatus, taskPriority) {
   let task = {
-    name: name
-    due: due
-    do: do
-    status: status
-    priority: priority
+    name: taskName,
+    due: taskDue,
+    do: taskDo,
+    status: taskStatus,
+    priority: taskPriority
   }
+  
   taskList.push(task);
 }
 
