@@ -1,7 +1,13 @@
-//Add tasks to a list so that I can keep track of them
+//Add tasks to a list array so that I can keep track of them
 test("Submitting a new task adds it to the list", () => {
     // test goes here
   });
+
+//display tasks from array
+test("Tasks from array show on screen", () => {
+  // test goes here
+});
+
 
 //Check things off my list so that I can see what I’ve done
 test("Checking an entry marks it as complete", () => {

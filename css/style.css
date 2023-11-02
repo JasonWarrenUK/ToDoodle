@@ -20,3 +20,16 @@
 .stack-sm > *+* {
   margin-top: 0.5rem;
 }
+
+/* To do list items */
+.to-do-item {
+  display: flex;
+}
+
+.tick-container {
+ /* styles */
+}
+
+.to-do-text-container {
+ /* styles */
+}
