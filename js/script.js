@@ -1,14 +1,55 @@
-// select the form/input/result
+/* Set Variables */
+let taskList = [{name: "test 1"}, {name: "test 2"}];
+const taskForm = document.querySelector('form');
 const toDoListContainer = document.getElementById('to-do-list')
 
-let taskList = [];
+/* Debug Tools */
+  //Console Log All Tasks in the Current List
+  const debugLogTasks = document.getElementById('logTasks');
+  debugLogTasks.addEventListener('click', function (event) {
+    event.preventDefault();
+    console.log(taskList);
+  });
+
+/* Task Creation */
+  //Task Template
+  function Task(taskName, taskDateDue, taskImportance) {
+    this.name = taskName;
+    this.dateDue = taskDateDue;
+    this.importance = taskImportance;
+    this.status = "open";
+  }
+
+  //Event Listener
+  taskForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Don't let the button make the page reload
+
+    const taskName = document.getElementById('taskName').value;
+    console.log("Task Name: " + taskName);
+    let taskDateDue = document.getElementById('taskDateDue').value;
+    console.log("Task Due: " + taskDateDue);
+    let taskImportance = document.querySelector('input[name="taskImportance"]:checked');
+    console.log("Task Importance: " + taskImportance);
+
+    // Set default values if they are not provided
+    if (taskDateDue === "") {
+      taskDateDue = null;
+    }
+    if (!taskImportance) {
+      taskImportance = "normal";
+    } else {
+      taskImportance = taskImportance.value;
+    }
+
+    const newTask = new Task(taskName, taskDateDue, taskImportance);
+
+    taskList.push(newTask);
+    console.log(newTask);
+    displayListItems(newTask);
+  });
 
 
-
-//Function for adding tasks(when submit is pressed add it to list array)
-
-
-//Function for displaying tasks on the array
+/* List Display */
 function displayListItems (task){
     let taskItem = document.createElement('div');
     taskItem.innerHTML = 
@@ -17,7 +58,7 @@ function displayListItems (task){
             <img src="images/check-circle.svg" />
           </div>
           <div class="to-do-text-container">
-            <p>${task}</p>
+            <p>${task.name}</p>
           </div>
         </div>
     `
@@ -29,27 +70,15 @@ taskList.forEach((task)=>{
 });
 
 
-//Function to remove tasks
+/* Task Deletion
+  Stuff*/
 
+/* Task Completion
+  When complete, show complete tick
+  get added to different list/ gets a .hidden ?>
+  class added to the class list? */
 
-
-//Function for complete tasks
-// When complete, show complete tick
-//get added to different list/ gets a .hidden ?>
-// class added to the class list? 
-
-
-
-//Function for toggling between all/to do either with class list
-// or filter function?
-// Toggle between 'all' and 'to do' 
-
-
-
-//Ideas
-//Ideas for how to create list?
-// tasks could be added to an array
-//(array.push to add and array.splice to remove?)
-// (this could be a table? Each time we add something we add 
-// a <tr>? Or could declare variable n and every time
-// submit is pressed, add to <tr>[n] then n+1)
+/* List Filtering
+  Function for toggling between all/to do either with class list
+  or filter function?
+  Toggle between 'all' and 'to do' */

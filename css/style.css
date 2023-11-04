@@ -1,25 +1,55 @@
-:root{
-    
+/* Project Meta */
 
+:root{
+  /* Colours */
+  /* Widths */
+    /* Boxes & Forms */
+      --widthBoxMargin:0.75rem;
+      --widthBoxBorder:0.25rem;
+      --widthBoxPadding:0.5rem;
+}
+
+html {
+  font-size: 16px;
+}
+
+
+/* Element Defaults */
+
+form {
+  margin: var(--widthBoxMargin);
+  border: var(--widthBoxBorder) solid white;
+  padding: var(--widthBoxPadding);
+}
+
+form div {
+  margin: 1rem;
 }
 
 /* Utility classes */
 
-.center{
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
+  /* Alignment */
+    .center{
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
 
-.stack-lg > *+* {
-  margin-top: 2rem;
-}
-.stack-md > *+* {
-  margin-top: 1rem;
-}
-.stack-sm > *+* {
-  margin-top: 0.5rem;
-}
+  /* Stacks */
+    .stack-lg > *+* {
+      margin-top: 2rem;
+    }
+    .stack-md > *+* {
+      margin-top: 1rem;
+    }
+    .stack-sm > *+* {
+      margin-top: 0.5rem;
+    }
+
+  /* Flex */
+    .flexParent {
+      display: flex;
+    }
 
 /* To do list items */
 .to-do-item {

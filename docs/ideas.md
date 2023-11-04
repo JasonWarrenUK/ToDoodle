@@ -6,26 +6,47 @@
 
 ## How It Does Things
 
-### Adding Tasks
+### Basic Functionality
+
+#### Tasks
+
+##### Creating Tasks
 
 - Press Button?
 
-### Completing Tasks
+##### Changing Tasks
 
-### Task Metadata
+#### Lists
 
-#### Statuses
+##### Creating Lists
 
-#### Priority
+- tasks could be added to an array
+- (array.push to add and array.splice to remove?)
 
-### Task Dates
+##### Displaying Lists
 
-#### Due Date
+- (this could be a table?
+- Each time we add something we add a <tr>?
+- Or could declare variable n and every time submit is pressed, add to <tr>[n] then n+1)
 
-#### Start Date
+### Advanced Functionality
 
-#### Do Date/Scheduled Date
+#### Task Metadata
 
-### List Views
+##### Statuses
 
-### List Sorting
+##### Priority
+
+##### Task Dates
+
+###### Due Date
+
+##### Start Date
+
+##### Do Date/Scheduled Date
+
+#### Sorting Lists
+
+#### Filtering Lists
+
+## Inbox

@@ -1,3 +1,4 @@
+/* 
 //Add tasks to a list array so that I can keep track of them
 test("Submitting a new task adds it to the list", () => {
     // test goes here
@@ -27,3 +28,4 @@ test("Toggling the filter hides completed tasks from the list", () => {
 
 
 //Other tests?
+*/

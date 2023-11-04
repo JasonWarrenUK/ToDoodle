@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>ToDoodle</title>
 
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/dark.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
     <script src="js/script.js" defer></script>
     <script src="js/test.js" defer></script>
 </head>
+
 <body>
     <header>
         <h1>ToDoodle</h1>
@@ -20,8 +23,64 @@
     <hr/>
 
     <main>
-        <p>Make a form here</p>
-        <h2>To Do:</h2>
+        <form id="taskCreator">
+            <h2>Create a New Task</h2>
+            <div class="flexParent">
+                <div id="taskFormName">
+                    <label for="taskName">Task</label>
+                    <input type="text" id="taskName" name="taskName" required>
+                </div>
+                <div id="taskFormDue">
+                    <label for="taskDateDue">Due Date</label>
+                    <input type="date" id="taskDateDue" name="taskDateDue">
+                </div>
+            </div>
+
+            <hr/>
+
+            <div id="taskFormImportance">
+                <p>Importance</p>
+                <div id="taskImportance" class="flexParent">
+                    <div>
+                        <input type="radio" id="lowest" name="taskImportance" value="lowest">
+                        <label for="lowest">Lowest</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="low" name="taskImportance" value="low">
+                        <label for="low">Low</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="medium" name="taskImportance" value="medium">
+                        <label for="medium">Normal</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="high" name="taskImportance" value="high">
+                        <label for="high">High</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="vital" name="taskImportance" value="vital">
+                        <label for="vital">Vital</label>
+                    </div>
+                </div>
+            </div>
+            
+            <hr/>
+
+            <div id="taskSubmit" class="flexParent">
+                <input type="submit" value="Create">
+            </div>
+        </form>
+
+        <hr/>
+
+        <section id="debugTools">
+            <h2>Debug Tools</h2>
+            <button id="logTasks">Log Tasks</button>
+        </section>
+
+        <hr/>
+
+        <h2>Task List</h2>
         <section id="to-do-list" class="to-do-list">
             <div class="to-do-item">
             <img src="images/check-circle.svg"><p>${task}</p>
