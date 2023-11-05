@@ -60,14 +60,17 @@ function displayListItems (task){
           <div class="to-do-text-container">
             <p>${task.name}</p>
           </div>
+          <div class="importance-container">
+            <p>${task.importance}</p>
+          </div>
         </div>
     `
-    toDoListContainer.appendChild('taskItem');
+    toDoListContainer.appendChild(taskItem);
 }
 
-taskList.forEach((task)=>{
-    displayListItems(task)
-});
+// taskList.forEach((task)=>{
+//     displayListItems(task)
+// });
 
 
 /* Task Deletion
