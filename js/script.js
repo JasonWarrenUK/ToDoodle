@@ -53,21 +53,21 @@ taskForm.addEventListener("submit", function (event) {
 /* List Display */
 
 function displayListItems(task) {
-  let taskItem = document.createElement("div");
-  taskItem.className = "to-do-item";
-  taskItem.innerHTML = ` <div class="tick-container">
-            <img src="images/check-circle.svg" class="iconTicks"/>
-          </div>
-          <div class="to-do-text-container">
-            <p class="task-name">${task.name}</p>
-          </div>
-          <div class="importance-container">
-            <p class="task-importance">${task.importance}</p>
-          </div>
-          <div class="delete-container">
-            <img src="images/delete.svg" class="iconDelete"/>
-          </div>
-    `;
+  let taskItem = document.createElement("li");
+  taskItem.className = "to-do-item flexParent";
+  taskItem.innerHTML = `
+    <div class="tick-container">
+      <img src="images/check-circle.svg" class="iconTicks"/>
+    </div>
+    <div class="to-do-text-container">
+      <p class="task-name">${task.name}</p>
+    </div>
+    <div class="importance-container">
+      <p class="task-importance">${task.importance}</p>
+    </div>
+    <div class="delete-container">
+      <img src="images/delete.svg"/>
+    </div>`;
 
   toDoListContainer.appendChild(taskItem);
   const tick = taskItem.querySelector(".iconTicks");
@@ -109,3 +109,6 @@ function completeTask(event) {
   Function for toggling between all/to do either with class list
   or filter function?
   Toggle between 'all' and 'to do' */
+
+// Initial Page Load
+displayListItems();

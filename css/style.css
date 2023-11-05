@@ -47,34 +47,70 @@ form div {
     }
 
   /* Flex */
-    .flexParent {
+  /* justify-content
+  align-items
+  align-content */
+
+    .formFlex {
       display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
     }
 
-/* To do list items */
+
+/* To Do List */
+.to-do-list {
+  border: var(--widthBoxBorder) solid blue;
+  margin: var(--widthBoxMargin);
+  padding: var(--widthBoxPadding);
+}
+
+/* Tasks */
+/* order
+flex
+flex-grow
+flex-shrink
+align-self */
 .to-do-item {
   display: flex;
-  border:solid red 2px;
-  width:30rem
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+  align-content: space-around;
+  border: solid red 2px;
+  padding: 0;
+  list-style-type: none;
+  list-style-position:inside;
+}
+
+.to-do-item > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--widthBoxMargin);
+  padding: var(--widthBoxPadding);
 }
 
 .tick-container {
- display: flex;
- align-items: center;
- border:solid greenyellow 2px;
- margin-left: 1rem;
- margin-right: 2rem;
+  flex: 0 0 auto;
+  border: solid greenyellow 2px;
 }
 
-.tick-container img{
- /* styles */
+.to-do-item img{
+  height: 2rem;
 }
+
+.delete-container {
+  flex: 0 0 auto;
+  border: solid greenyellow 2px;
+ }
 
 .to-do-text-container {
-  border:solid greenyellow 2px;
+  flex: 2 0 50%;
+  border: solid greenyellow 2px;
 }
 
 .importance-container{
-  border:solid greenyellow 2px;
-  margin-left: auto;
+  flex: 1 0 auto;
+  border: solid greenyellow 2px;
 }

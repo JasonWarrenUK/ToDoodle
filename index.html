@@ -26,7 +26,7 @@
     <main>
         <form id="taskCreator">
             <h2>Create a New Task</h2>
-            <div class="flexParent">
+            <div class="formFlex">
                 <div id="taskFormName">
                     <label for="taskName">Task</label>
                     <input type="text" id="taskName" name="taskName" required>
@@ -41,7 +41,7 @@
 
             <div id="taskFormImportance">
                 <p>Importance</p>
-                <div id="taskImportance" class="flexParent">
+                <div id="taskImportance" class="formFlex">
                     <div>
                         <input type="radio" id="lowest" name="taskImportance" value="lowest">
                         <label for="lowest">Lowest</label>
@@ -76,14 +76,17 @@
 
         <section id="debugTools">
             <h2>Debug Tools</h2>
-            <button id="logTasks">Log Tasks</button>
+            <div class="flexParent">
+                <button id="logTasks">Log Tasks</button>
+            </div>
         </section>
 
         <hr/>
 
-        <h2>Task List</h2>
-        <section id="to-do-list" class="to-do-list">
-            
+        <section>
+            <h2>Task List</h2>
+            <ul id="to-do-list" class="to-do-list">
+            </ul>
         </section>
     </main>
 
