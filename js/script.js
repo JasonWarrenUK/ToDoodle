@@ -62,12 +62,12 @@ function displayListItems (task){
           </div>
         </div>
     `
-    toDoListContainer.appendChild('taskItem');
+    toDoListContainer.appendChild(taskItem);
 }
 
-taskList.forEach((task)=>{
-    displayListItems(task)
-});
+// taskList.forEach((task)=>{
+//     displayListItems(task)
+// });
 
 
 /* Task Deletion
