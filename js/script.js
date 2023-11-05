@@ -60,10 +60,10 @@ function displayListItems(task) {
             <img src="images/check-circle.svg" class="ticks"/>
           </div>
           <div class="to-do-text-container">
-            <p>${task.name}</p>
+            <p class="task-name">${task.name}</p>
           </div>
           <div class="importance-container">
-            <p>${task.importance}</p>
+            <p class="task-importance">${task.importance}</p>
           </div>
     `;
 
