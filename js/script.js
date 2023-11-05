@@ -70,7 +70,6 @@ function displayListItems(task) {
   toDoListContainer.appendChild(taskItem);
   const tick = taskItem.querySelector(".ticks");
   tick.addEventListener("click", completeTask);
-  
 }
 
 // Task Completion
