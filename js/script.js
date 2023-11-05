@@ -99,20 +99,6 @@ function completeTask(event) {
   }
 }
 
-// Task Completion
-//when you click on the tick, the tick changes colour and the task status changes to 'complete'/
-//(class toggles from open to complete)
-
-
-
-
-
-
-
-//for loop to select all of tick class and add event listener
-// for(let i = 0 ; i < ticks.length ; i++){
-//   ticks.addEventListener("click", completeTasks)
-// }
 
 /* Task Deletion
   Stuff*/
