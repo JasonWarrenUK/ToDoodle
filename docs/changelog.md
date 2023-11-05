@@ -1,8 +1,24 @@
 # Changelog
 
-## 04-11-23
+## 5th November
 
-### Headlines
+### Task Deletion
+
+**Headlines**
+
+**Details**
+
+- `script.js`
+  - added `div` to list updater function with class `.iconDelete`
+  - changed `.ticks` to `.iconTicks`
+
+### README Flowchart
+
+## 4th November
+
+### Task Creation Form
+
+**Headlines**
 
 - Create new tasks now works fine
   - Name is mandatory, other values are optional
@@ -10,7 +26,7 @@
 - Added a debug section
   - Pressing the log tasks button will console log all currently existing tasks in the task list
 
-### Details
+**Details**
 
 - General
   - Applied Prettier as default formatter on my IDE
