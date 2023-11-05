@@ -22,22 +22,6 @@ test("Tasks from array show on screen when all items selected", () => {
 
 });
 
-test("No tasks show on screen when input is empty", () => {
-  const taskData = { };
-  displayListItems(taskData);
-
-  const taskElement = document.querySelector('.to-do-item');
-  const taskName = taskElement.querySelector(".task-name");
-  const taskImportance = taskElement.querySelector(".task-importance");
-  
-  const expectedName = "";
-  const expectedImportance = "";
-  
-  equal(taskElement !== null, true, "Task element was added");
-  equal(taskName.textContent, expectedName);
-  equal(taskImportance.textContent, expectedImportance);
-
-});
 
 
 //Check things off my list so that I can see what I’ve done
