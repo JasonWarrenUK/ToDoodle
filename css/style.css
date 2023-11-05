@@ -54,12 +54,27 @@ form div {
 /* To do list items */
 .to-do-item {
   display: flex;
+  border:solid red 2px;
+  width:30rem
 }
 
 .tick-container {
+ display: flex;
+ align-items: center;
+ border:solid greenyellow 2px;
+ margin-left: 1rem;
+ margin-right: 2rem;
+}
+
+.tick-container img{
  /* styles */
 }
 
 .to-do-text-container {
- /* styles */
+  border:solid greenyellow 2px;
+}
+
+.importance-container{
+  border:solid greenyellow 2px;
+  margin-left: auto;
 }

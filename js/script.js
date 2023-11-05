@@ -60,6 +60,9 @@ function displayListItems (task){
           <div class="to-do-text-container">
             <p>${task.name}</p>
           </div>
+          <div class="importance-container">
+            <p>${task.importance}</p>
+          </div>
         </div>
     `
     toDoListContainer.appendChild(taskItem);
