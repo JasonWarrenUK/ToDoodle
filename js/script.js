@@ -11,7 +11,6 @@ debugLogTasks.addEventListener("click", function (event) {
   console.log(taskList);
 });
 
-/* Task Creation */
 //Task Template
 function Task(taskName, taskDateDue, taskImportance) {
   this.name = taskName;
@@ -20,18 +19,18 @@ function Task(taskName, taskDateDue, taskImportance) {
   this.status = "open";
 }
 
-//Event Listener
+// Task Creation Event Listener
 taskForm.addEventListener("submit", function (event) {
-  event.preventDefault(); // Don't let the button make the page reload
+  event.preventDefault(); // Prevent the page reloading
 
   const taskName = document.getElementById("taskName").value;
-  console.log("Task Name: " + taskName);
   let taskDateDue = document.getElementById("taskDateDue").value;
-  console.log("Task Due: " + taskDateDue);
   let taskImportance = document.querySelector(
     'input[name="taskImportance"]:checked'
   );
-  console.log("Task Importance: " + taskImportance);
+  console.log("Task Name Submitted: " + taskName);
+  console.log("Task Due Submitted: " + taskDateDue);
+  console.log("Task Importance Submitted: " + taskImportance);
 
   // Set default values if they are not provided
   if (taskDateDue === "") {
@@ -42,11 +41,14 @@ taskForm.addEventListener("submit", function (event) {
   } else {
     taskImportance = taskImportance.value;
   }
+  console.log("Task Name Assigned: " + taskName);
+  console.log("Task Due Assigned: " + taskDateDue);
+  console.log("Task Importance Assigned: " + taskImportance);
 
   const newTask = new Task(taskName, taskDateDue, taskImportance);
+  console.log("Task to Be Pushed: " + newTask);
 
   taskList.push(newTask);
-  console.log(newTask);
   displayListItems(newTask);
 });
 
