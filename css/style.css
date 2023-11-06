@@ -1,33 +1,40 @@
-/* Project Meta */
-
 :root{
   /* Colours */
+  --colourBorder: #000000;
+  --colourDebug: #ff9999;
   /* Widths */
-    /* Boxes & Forms */
-      --widthBoxMargin:0.75rem;
-      --widthBoxBorder:0.25rem;
-      --widthBoxPadding:0.5rem;
+  --widthDebug: 0.1rem;
+  --widthBoxMargin:0.75rem;
+  --widthBoxBorder:0.2rem;
+  --widthBoxPadding:0.5rem;
 }
 
 html {
   font-size: 16px;
 }
 
-
-/* Element Defaults */
-
-form {
+body,
+header,
+main,
+footer,
+section,
+form,
+div {
   margin: var(--widthBoxMargin);
-  border: var(--widthBoxBorder) solid white;
+  border: var(--widthDebug) dashed var(--colourDebug);
+  padding: var(--widthBoxPadding);
+}
+
+div {
+  margin: var(--widthBoxMargin);
   padding: var(--widthBoxPadding);
 }
 
 form div {
-  margin: 1rem;
+  padding: 0;
 }
 
 /* Utility classes */
-
   /* Alignment */
     .center{
         margin-left: auto;
@@ -46,11 +53,7 @@ form div {
       margin-top: 0.5rem;
     }
 
-  /* Flex */
-  /* justify-content
-  align-items
-  align-content */
-
+  /* Form */
     .formFlex {
       display: flex;
       flex-flow: row wrap;
@@ -59,59 +62,33 @@ form div {
 
 
 /* To Do List */
-.to-do-list {
-  border: var(--widthBoxBorder) solid blue;
-  margin: var(--widthBoxMargin);
-  padding: var(--widthBoxPadding);
-}
+  .to-do-list {
+    margin: var(--widthBoxMargin);
+    padding: var(--widthBoxPadding);
+  }
 
 /* Tasks */
-/* order
-flex
-flex-grow
-flex-shrink
-align-self */
-.to-do-item {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-evenly;
-  align-items: stretch;
-  align-content: space-around;
-  border: solid red 2px;
-  padding: 0;
-  list-style-type: none;
-  list-style-position:inside;
-}
+  .to-do-item {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+    align-content: space-around;
+    border: var(--widthDebug) dashed var(--colourDebug);
+    padding: 0;
+    list-style-type: none;
+    list-style-position:inside;
+  }
 
-.to-do-item > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: var(--widthBoxMargin);
-  padding: var(--widthBoxPadding);
-}
+  .to-do-item > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.tick-container {
-  flex: 0 0 auto;
-  border: solid greenyellow 2px;
-}
+  .tick-container {flex: 0 0 auto;}
+  .delete-container {flex: 0 0 auto;}
+  .to-do-text-container {flex: 2 0 50%;}
+  .importance-container{flex: 1 0 auto;}
 
-.to-do-item img{
-  height: 2rem;
-}
-
-.delete-container {
-  flex: 0 0 auto;
-  border: solid greenyellow 2px;
- }
-
-.to-do-text-container {
-  flex: 2 0 50%;
-  border: solid greenyellow 2px;
-}
-
-.importance-container{
-  flex: 1 0 auto;
-  border: solid greenyellow 2px;
-}
-
+  .to-do-item img{height: 2rem;}
