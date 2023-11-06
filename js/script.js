@@ -72,7 +72,7 @@ function displayListItems(newList) {
     <div class="delete-container">
       <img src="images/delete.svg"/>
     </div>`;
-    } else {
+    } else if (task.status === "complete") {
       taskItem.innerHTML = `
     <div class="tick-container">
       <img src="images/check-circle-filled.svg" class="iconTicks"/>
