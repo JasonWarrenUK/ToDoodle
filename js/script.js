@@ -1,5 +1,6 @@
 /* Set Variables */
-let taskList = [{ name: "test 1" }, { name: "test 2" }];
+// let taskList = [{ name: "test 1" }, { name: "test 2" }];
+let taskList = [];
 const taskForm = document.querySelector("form");
 const toDoListContainer = document.getElementById("to-do-list");
 
@@ -22,7 +23,6 @@ function Task(taskName, taskDateDue, taskImportance) {
 // Task Creation Event Listener
 taskForm.addEventListener("submit", function (event) {
   event.preventDefault(); // Prevent the page reloading
-
   const taskName = document.getElementById("taskName").value;
   let taskDateDue = document.getElementById("taskDateDue").value;
   let taskImportance = document.querySelector(
@@ -49,13 +49,15 @@ taskForm.addEventListener("submit", function (event) {
   console.log("Task to Be Pushed: " + newTask);
 
   taskList.push(newTask);
-  displayListItems(newTask);
+  displayListItems(taskList);
 });
 
 /* List Display */
 
-function displayListItems(task) {
-  let taskItem = document.createElement("li");
+function displayListItems(newList) {
+  toDoListContainer.innerHTML=""
+  newList.forEach((task)=>{
+    let taskItem = document.createElement("li");
   taskItem.className = "to-do-item flexParent";
   taskItem.innerHTML = `
     <div class="tick-container">
@@ -74,6 +76,8 @@ function displayListItems(task) {
   toDoListContainer.appendChild(taskItem);
   const tick = taskItem.querySelector(".iconTicks");
   tick.addEventListener("click", completeTask);
+  })
+  // console.log(taskList)
 }
 
 // Task Completion
@@ -94,14 +98,13 @@ function completeTask(event) {
       correspondingTask.status = "complete";
 
       // Change the image src to filled
-      const tick = taskItem.querySelector(".ticks");
+      const tick = taskItem.querySelector(".iconTicks");
       tick.src = "images/check-circle-filled.svg";
 
       // Toggle class to complete
       taskItem.classList.add("complete");
     }
-    console.log(taskItem);
-  }
+  } 
 }
 
 /* Task Deletion
@@ -112,5 +115,13 @@ function completeTask(event) {
   or filter function?
   Toggle between 'all' and 'to do' */
 
+function toggleCompleteTasks(){
+  let stillToDo = taskList.filter((item)=> item.status==="open");
+  displayListItems(stillToDo) 
+  console.log("Still to do:" + stillToDo)
+}
+
+const completeButton = document.getElementById('completeButton')
+completeButton.addEventListener('click', toggleCompleteTasks)
 // Initial Page Load
 displayListItems();
