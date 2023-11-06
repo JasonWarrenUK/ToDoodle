@@ -53,13 +53,13 @@ taskForm.addEventListener("submit", function (event) {
 });
 
 /* List Display */
-
 function displayListItems(newList) {
   toDoListContainer.innerHTML = "";
   newList.forEach((task) => {
     let taskItem = document.createElement("li");
     taskItem.className = "to-do-item flexParent";
-    taskItem.innerHTML = `
+    if (task.status === "open") {
+      taskItem.innerHTML = `
     <div class="tick-container">
       <img src="images/check-circle.svg" class="iconTicks"/>
     </div>
@@ -72,18 +72,29 @@ function displayListItems(newList) {
     <div class="delete-container">
       <img src="images/delete.svg"/>
     </div>`;
+    } else {
+      taskItem.innerHTML = `
+    <div class="tick-container">
+      <img src="images/check-circle-filled.svg" class="iconTicks"/>
+    </div>
+    <div class="to-do-text-container">
+      <p class="task-name">${task.name}</p>
+    </div>
+    <div class="importance-container">
+      <p class="task-importance">${task.importance}</p>
+    </div>
+    <div class="delete-container">
+      <img src="images/delete.svg"/>
+    </div>`;
+    }
 
     toDoListContainer.appendChild(taskItem);
     const tick = taskItem.querySelector(".iconTicks");
     tick.addEventListener("click", completeTask);
   });
-  // console.log(taskList)
 }
 
 // Task Completion
-//when you click on the tick, the tick changes colour and the task status changes to 'complete'/
-//(class toggles from open to complete)
-
 function completeTask(event) {
   const taskItem = event.target.closest(".to-do-item");
 
@@ -101,7 +112,7 @@ function completeTask(event) {
         correspondingTask.status = "open";
         tick.src = "images/check-circle.svg";
       }
-   }
+    }
   }
 }
 
@@ -117,18 +128,18 @@ const completeButton = document.getElementById("completeButton");
 
 function toggleCompleteTasks() {
   let stillToDo = taskList.filter((item) => item.status === "open");
-  if(completeButton.innerText==="Hide Completed Tasks"){
-    completeButton.innerText="Show Completed Tasks";
+  if (completeButton.innerText === "Hide Completed Tasks") {
+    completeButton.innerText = "Show Completed Tasks";
     displayListItems(stillToDo);
   } else {
-    completeButton.innerText="Hide Completed Tasks";
+    completeButton.innerText = "Hide Completed Tasks";
     displayListItems(taskList);
   }
-  
+
   console.log("Still to do:" + stillToDo);
 }
 
-
 completeButton.addEventListener("click", toggleCompleteTasks);
+
 // Initial Page Load
 displayListItems();
