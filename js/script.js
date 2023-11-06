@@ -57,7 +57,7 @@ function displayListItems(newList) {
   toDoListContainer.innerHTML = "";
   newList.forEach((task) => {
     let taskItem = document.createElement("li");
-    taskItem.className = "to-do-item flexParent";
+    taskItem.className = "to-do-item";
     if (task.status === "open") {
       taskItem.innerHTML = `
     <div class="tick-container">
