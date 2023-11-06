@@ -55,11 +55,11 @@ taskForm.addEventListener("submit", function (event) {
 /* List Display */
 
 function displayListItems(task) {
-  let taskItem = document.createElement("div");
-  taskItem.className = "to-do-item";
+  let taskItem = document.createElement("li");
+  taskItem.className = "to-do-item flexParent";
   taskItem.innerHTML = `
     <div class="tick-container">
-      <img src="images/check-circle.svg" class="ticks"/>
+      <img src="images/check-circle.svg" class="iconTicks"/>
     </div>
     <div class="to-do-text-container">
       <p class="task-name">${task.name}</p>
@@ -67,10 +67,12 @@ function displayListItems(task) {
     <div class="importance-container">
       <p class="task-importance">${task.importance}</p>
     </div>
-  `;
+    <div class="delete-container">
+      <img src="images/delete.svg"/>
+    </div>`;
 
   toDoListContainer.appendChild(taskItem);
-  const tick = taskItem.querySelector(".ticks");
+  const tick = taskItem.querySelector(".iconTicks");
   tick.addEventListener("click", completeTask);
 }
 
@@ -82,7 +84,9 @@ function completeTask(event) {
   const taskItem = event.target.closest(".to-do-item");
 
   if (taskItem) {
-    const taskName = taskItem.querySelector(".to-do-text-container p").textContent;
+    const taskName = taskItem.querySelector(
+      ".to-do-text-container p"
+    ).textContent;
     const correspondingTask = taskList.find((task) => task.name === taskName);
 
     if (correspondingTask) {
@@ -96,10 +100,9 @@ function completeTask(event) {
       // Toggle class to complete
       taskItem.classList.add("complete");
     }
-    console.log(taskItem)
+    console.log(taskItem);
   }
 }
-
 
 /* Task Deletion
   Stuff*/
@@ -108,3 +111,6 @@ function completeTask(event) {
   Function for toggling between all/to do either with class list
   or filter function?
   Toggle between 'all' and 'to do' */
+
+// Initial Page Load
+displayListItems();
