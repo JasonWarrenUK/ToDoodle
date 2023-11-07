@@ -1,10 +1,14 @@
 //Please can we keep whitespace between segments and indentation under comment headings? It really helps me read the code.
 
 /* Set Variables */
-  let taskList = [];
+// let taskList = [{ name: "test 1" }, { name: "test 2" }]; For testing
+// let taskList = [];  Not needed if we use local storage
+const taskForm = document.querySelector("form");
+const toDoListContainer = document.getElementById("to-do-list");
 
-  const taskForm = document.querySelector("form");
-  const toDoListContainer = document.getElementById("to-do-list");
+//get info from local storage (this is the new stored list)
+const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
 
 
 /* Debug Tools */
@@ -53,9 +57,18 @@
     const newTask = new Task(taskName, taskDateDue, taskImportance);
     console.log("Task to Be Pushed: " + newTask);
 
-    taskList.push(newTask);
-    displayListItems(taskList);
-  });
+    // taskList.push(newTask); No longer needed
+
+  //Push a new task to the stored list
+  tasks.push(newTask);
+  //set the stored list
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  //display stored tasks
+  displayListItems(tasks); 
+  console.log(localStorage.getItem('tasks'));
+});
+
+
 
 
 /* List Display */
@@ -106,23 +119,23 @@
   function completeTask(event) {
     const taskItem = event.target.closest(".to-do-item");
 
-    if (taskItem) {
-      const taskName = taskItem.querySelector(
-        ".to-do-text-container p"
-      ).textContent;
-      const correspondingTask = taskList.find((task) => task.name === taskName);
-      const tick = taskItem.querySelector(".iconTicks");
-      if (correspondingTask) {
-        if (correspondingTask.status === "open") {
-          correspondingTask.status = "complete";
-          tick.src = "images/check-circle-filled.svg";
-        } else {
-          correspondingTask.status = "open";
-          tick.src = "images/check-circle.svg";
-        }
+  if (taskItem) {
+    const taskName = taskItem.querySelector(
+      ".to-do-text-container p"
+    ).textContent;
+    const correspondingTask = tasks.find((task) => task.name === taskName);
+    const tick = taskItem.querySelector(".iconTicks");
+    if (correspondingTask) {
+      if (correspondingTask.status === "open") {
+        correspondingTask.status = "complete";
+        tick.src = "images/check-circle-filled.svg";
+      } else {
+        correspondingTask.status = "open";
+        tick.src = "images/check-circle.svg";
       }
     }
   }
+}
 
 
 /* Task Deletion */
@@ -131,21 +144,22 @@
 /* List Filtering */
   const completeButton = document.getElementById("completeButton");
 
-  function toggleCompleteTasks() {
-    let stillToDo = taskList.filter((item) => item.status === "open");
-    if (completeButton.innerText === "Hide Completed Tasks") {
-      completeButton.innerText = "Show Completed Tasks";
-      displayListItems(stillToDo);
-    } else {
-      completeButton.innerText = "Hide Completed Tasks";
-      displayListItems(taskList);
-    }
+function toggleCompleteTasks() {
+  let stillToDo = tasks.filter((item) => item.status === "open");
+  if (completeButton.innerText === "Hide Completed Tasks") {
+    completeButton.innerText = "Show Completed Tasks";
+    displayListItems(stillToDo);
+  } else {
+    completeButton.innerText = "Hide Completed Tasks";
+    displayListItems(tasks);
+  }
 
     console.log("Still to do:" + stillToDo);
   }
 
   completeButton.addEventListener("click", toggleCompleteTasks);
 
-
-/* Initial Page Load */
-  displayListItems();
+// Initial Page Load
+document.addEventListener('DOMContentLoaded', () => {
+  displayListItems(tasks); 
+});
