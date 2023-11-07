@@ -1,7 +1,6 @@
 //Please can we keep whitespace between segments and indentation under comment headings? It really helps me read the code.
 
 /* Set Variables */
-// let taskList = [{ name: "test 1" }, { name: "test 2" }]; For testing
 // let taskList = [];  Not needed if we use local storage
 const taskForm = document.querySelector("form");
 const toDoListContainer = document.getElementById("to-do-list");
@@ -16,7 +15,17 @@ const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   const debugLogTasks = document.getElementById("logTasks");
   debugLogTasks.addEventListener("click", function (event) {
     event.preventDefault();
-    console.log(taskList);
+    console.log(tasks);
+  });
+
+  const debugClearTasks = document.getElementById("clearTasks");
+  debugClearTasks.addEventListener("click", function (event) {
+    /* event.preventDefault(); */
+    // Clear all items from the 'tasks' array
+    tasks.length = 0;
+  
+    // Update local storage with the empty 'tasks' array
+    localStorage.setItem('tasks', JSON.stringify(tasks));
   });
 
 
@@ -31,12 +40,14 @@ const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 /* Task Creation Event Listener */
   taskForm.addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent the page reloading
+    event.preventDefault();//Prevent the page reloading
+
     const taskName = document.getElementById("taskName").value;
     let taskDateDue = document.getElementById("taskDateDue").value;
     let taskImportance = document.querySelector(
       'input[name="taskImportance"]:checked'
     );
+
     console.log("Task Name Submitted: " + taskName);
     console.log("Task Due Submitted: " + taskDateDue);
     console.log("Task Importance Submitted: " + taskImportance);
@@ -50,6 +61,7 @@ const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     } else {
       taskImportance = taskImportance.value;
     }
+
     console.log("Task Name Assigned: " + taskName);
     console.log("Task Due Assigned: " + taskDateDue);
     console.log("Task Importance Assigned: " + taskImportance);
@@ -57,60 +69,64 @@ const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     const newTask = new Task(taskName, taskDateDue, taskImportance);
     console.log("Task to Be Pushed: " + newTask);
 
-    // taskList.push(newTask); No longer needed
-
-  //Push a new task to the stored list
-  tasks.push(newTask);
-  //set the stored list
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-  //display stored tasks
-  displayListItems(tasks); 
-  console.log(localStorage.getItem('tasks'));
-});
-
-
+    //Push a new task to the stored list
+    tasks.push(newTask);
+    //set the stored list
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    //display stored tasks
+    displayListItems(tasks); 
+    console.log(localStorage.getItem('tasks'));
+  });
 
 
 /* List Display */
   function displayListItems(newList) {
+    //Clear the list
     toDoListContainer.innerHTML = "";
+
+    //Generate a new list
     newList.forEach((task) => {
       let taskItem = document.createElement("li");
       taskItem.className = "to-do-item";
 
       if (task.status === "open") {
-        taskItem.innerHTML = `
-          <div class="tick-container">
-            <img src="images/check-circle.svg"/>
-          </div>
-          <div class="to-do-text-container">
-            <p class="task-name">${task.name}</p>
-          </div>
-          <div class="importance-container">
-            <p class="task-importance">${task.importance}</p>
-          </div>
-          <div class="delete-container">
-            <img src="images/delete.svg"/>
-          </div>`;
-      } else if (task.status === "complete") {
-        taskItem.innerHTML = `
-          <div class="tick-container">
-            <img src="images/check-circle-filled.svg"/>
-          </div>
-          <div class="to-do-text-container">
-            <p class="task-name">${task.name}</p>
-          </div>
-          <div class="importance-container">
-            <p class="task-importance">${task.importance}</p>
-          </div>
-          <div class="delete-container">
-            <img src="images/delete.svg"/>
-          </div>`;
+        taskItem.innerHTML =
+        `<div class="tick-container">
+          <img src="images/check-circle.svg"/>
+        </div>
+        <div class="to-do-text-container">
+          <p class="task-name">${task.name}</p>
+        </div>
+        <div class="importance-container">
+          <p class="task-importance">${task.importance}</p>
+        </div>
+        <div class="delete-container">
+          <img src="images/delete.svg"/>
+        </div>`;
+      } else /* We can re-enable this if we add more status types: if (task.status === "complete") */ {
+        taskItem.innerHTML =
+        `<div class="tick-container">
+          <img src="images/check-circle-filled.svg"/>
+        </div>
+        <div class="to-do-text-container">
+          <p class="task-name">${task.name}</p>
+        </div>
+        <div class="importance-container">
+          <p class="task-importance">${task.importance}</p>
+        </div>
+        <div class="delete-container">
+          <img src="images/delete.svg"/>
+        </div>`;
       }
 
+      /* const tick = taskItem.querySelector(".tick-container"); */
+      const iconComplete = taskItem.querySelector('.tick-container img');
+      const iconDelete = taskItem.querySelector('.delete-container img');
+
+      iconComplete.addEventListener("click", completeTask);
+      iconDelete.addEventListener("click", deleteTask);
+      
       toDoListContainer.appendChild(taskItem);
-      const tick = taskItem.querySelector(".tick-container");
-      tick.addEventListener("click", completeTask);
     });
   }
 
@@ -119,26 +135,41 @@ const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   function completeTask(event) {
     const taskItem = event.target.closest(".to-do-item");
 
-  if (taskItem) {
-    const taskName = taskItem.querySelector(
-      ".to-do-text-container p"
-    ).textContent;
-    const correspondingTask = tasks.find((task) => task.name === taskName);
-    const tick = taskItem.querySelector(".iconTicks");
-    if (correspondingTask) {
-      if (correspondingTask.status === "open") {
-        correspondingTask.status = "complete";
-        tick.src = "images/check-circle-filled.svg";
-      } else {
-        correspondingTask.status = "open";
-        tick.src = "images/check-circle.svg";
+    if (taskItem) {
+      const taskName = taskItem.querySelector(
+        ".to-do-text-container p"
+      ).textContent;
+      const correspondingTask = tasks.find((task) => task.name === taskName);
+      const tick = taskItem.querySelector(".iconTicks");
+      if (correspondingTask) {
+        if (correspondingTask.status === "open") {
+          correspondingTask.status = "complete";
+          tick.src = "images/check-circle-filled.svg";
+        } else {
+          correspondingTask.status = "open";
+          tick.src = "images/check-circle.svg";
+        }
       }
     }
+
+    displayListItems(tasks);
   }
-}
 
 
 /* Task Deletion */
+function deleteTask(event) {
+  const taskItem = event.target.closest(".to-do-item");
+
+  if (taskItem) {
+    const taskName = taskItem.querySelector(".to-do-text-container p").textContent;
+    const correspondingTaskIndex = tasks.findIndex((task) => task.name === taskName);
+
+    if (correspondingTaskIndex !== -1) {
+      tasks.splice(correspondingTaskIndex, 1);
+      taskItem.remove();
+    }
+  }
+}
 
 
 /* List Filtering */

@@ -71,23 +71,29 @@
             </div>
         </form>
 
-        <section id="debugTools" class="">
-            <div>
-                <h2>Debug Tools</h2>
-            </div>
-
-            <div class="flexParent">
-                <button id="logTasks">Log Tasks</button>
-            </div>
-        </section>
-
         <section id="taskList">
-            <div>
-                <h2>Task List</h2>
-
-                <button id="completeButton" class="complete-button">
-                    Hide Completed Tasks
-                </button>
+            <div id="buttons" class="splitFlex">
+                <div id="taskListMenu" class="menuFlex">
+                    <div>
+                        <h2>Task List</h2>
+                    </div>
+                    <div>
+                        <button id="completeButton"class="complete-button">
+                            Hide Completed Tasks
+                        </button>
+                    </div>
+                </div>
+                <div id="taskListDebug" class="menuFlex">
+                    <div>
+                        <h2>Debug Tools</h2>
+                    </div>
+                    <div>
+                        <button id="logTasks">Log Tasks</button>
+                    </div>
+                    <div>
+                        <button id="clearTasks">Clear Tasks</button>
+                    </div>
+                </div>
             </div>
             
             <div>

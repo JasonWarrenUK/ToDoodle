@@ -53,11 +53,29 @@ form div {
       margin-top: 0.5rem;
     }
 
-  /* Form */
+  /* Flex */
     .formFlex {
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
+    }
+
+    .splitFlex {
+      display: flex;
+      justify-content: space-between;
+    }
+    .splitFlex > div {
+      flex: 1 1 40%;
+    }
+
+    .menuFlex {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: start;
+      align-items: center;
+    }
+    .menuFlex > div {
+      flex: 0 1 auto;
     }
 
 
