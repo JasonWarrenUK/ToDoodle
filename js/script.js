@@ -1,8 +1,11 @@
 /* Set Variables */
-// let taskList = [{ name: "test 1" }, { name: "test 2" }];
-let taskList = [];
+// let taskList = [{ name: "test 1" }, { name: "test 2" }]; For testing
+// let taskList = [];  Not needed if we use local storage
 const taskForm = document.querySelector("form");
 const toDoListContainer = document.getElementById("to-do-list");
+
+//get info from local storage (this is the new stored list)
+const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 /* Debug Tools */
 //Console Log All Tasks in the Current List
@@ -48,9 +51,17 @@ taskForm.addEventListener("submit", function (event) {
   const newTask = new Task(taskName, taskDateDue, taskImportance);
   console.log("Task to Be Pushed: " + newTask);
 
-  taskList.push(newTask);
-  displayListItems(taskList);
+  // taskList.push(newTask); No longer needed
+
+  //Push a new task to the stored list
+  tasks.push(newTask);
+  //set the stored list
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  //display stored tasks
+  displayListItems(tasks); 
+  console.log(localStorage.getItem('tasks'));
 });
+
 
 /* List Display */
 function displayListItems(newList) {
@@ -102,7 +113,7 @@ function completeTask(event) {
     const taskName = taskItem.querySelector(
       ".to-do-text-container p"
     ).textContent;
-    const correspondingTask = taskList.find((task) => task.name === taskName);
+    const correspondingTask = tasks.find((task) => task.name === taskName);
     const tick = taskItem.querySelector(".iconTicks");
     if (correspondingTask) {
       if (correspondingTask.status === "open") {
@@ -127,13 +138,13 @@ function completeTask(event) {
 const completeButton = document.getElementById("completeButton");
 
 function toggleCompleteTasks() {
-  let stillToDo = taskList.filter((item) => item.status === "open");
+  let stillToDo = tasks.filter((item) => item.status === "open");
   if (completeButton.innerText === "Hide Completed Tasks") {
     completeButton.innerText = "Show Completed Tasks";
     displayListItems(stillToDo);
   } else {
     completeButton.innerText = "Hide Completed Tasks";
-    displayListItems(taskList);
+    displayListItems(tasks);
   }
 
   console.log("Still to do:" + stillToDo);
@@ -142,4 +153,6 @@ function toggleCompleteTasks() {
 completeButton.addEventListener("click", toggleCompleteTasks);
 
 // Initial Page Load
-displayListItems();
+document.addEventListener('DOMContentLoaded', () => {
+  displayListItems(tasks); 
+});
