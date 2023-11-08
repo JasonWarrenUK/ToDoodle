@@ -140,7 +140,7 @@ const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
         ".to-do-text-container p"
       ).textContent;
       const correspondingTask = tasks.find((task) => task.name === taskName);
-      const tick = taskItem.querySelector(".iconTicks");
+      const tick = taskItem.querySelector(".tick-container img");
       if (correspondingTask) {
         if (correspondingTask.status === "open") {
           correspondingTask.status = "complete";
