@@ -7,8 +7,9 @@
     <title>ToDoodle</title>
 
     <link href="css/normalize.css" rel="stylesheet">
-    <link href="css/dark.css" rel="stylesheet">
+    <!-- <link href="css/dark.css" rel="stylesheet"> -->
     <link href="css/style.css" rel="stylesheet">
+
     <script src="js/test-helpers.js" defer></script>
     <script src="js/script.js" defer></script>
     <script src="js/test.js" defer></script>
@@ -21,23 +22,23 @@
         <p>Say Toodle-Do to Your To-Dos</p>
     </header>
 
-    <hr/>
-
     <main>
         <form id="taskCreator">
-            <h2>Create a New Task</h2>
+            <div>
+                <h2>Create a New Task</h2>
+            </div>
+
             <div class="formFlex">
                 <div id="taskFormName">
                     <label for="taskName">Task</label>
                     <input type="text" id="taskName" name="taskName" required>
                 </div>
+
                 <div id="taskFormDue">
                     <label for="taskDateDue">Due Date</label>
                     <input type="date" id="taskDateDue" name="taskDateDue">
                 </div>
             </div>
-
-            <hr/>
 
             <div id="taskFormImportance">
                 <p>Importance</p>
@@ -64,45 +65,63 @@
                     </div>
                 </div>
             </div>
-            
-            <hr/>
 
             <div id="taskSubmit" class="flexParent">
                 <input type="submit" value="Create">
             </div>
         </form>
 
-        <hr/>
-
-        <section id="debugTools">
-            <h2>Debug Tools</h2>
-            <div class="flexParent">
-                <button id="logTasks">Log Tasks</button>
+        <section id="taskList">
+            <div id="buttons" class="splitFlex">
+                <div id="taskListMenu" class="menuFlex">
+                    <div>
+                        <h2>Task List</h2>
+                    </div>
+                    <div>
+                        <button id="completeButton"class="complete-button">
+                            Hide Completed Tasks
+                        </button>
+                    </div>
+                </div>
+                <div id="taskListDebug" class="menuFlex">
+                    <div>
+                        <h2>Debug Tools</h2>
+                    </div>
+                    <div>
+                        <button id="logTasks">Log Tasks</button>
+                    </div>
+                    <div>
+                        <button id="clearTasks">Clear Tasks</button>
+                    </div>
+                </div>
             </div>
-        </section>
+            
+            <div>
+                <ul id="to-do-title" class="to-do-list">
+                    <li class="to-do-item center">
+                        <div class="tick-container">
+                            <p><strong>Tick Off!</strong></p>
+                        </div>
+                        <div class="to-do-text-container">
+                            <p><strong>Task</strong></p>
+                        </div>
+                        <div class="importance-container">
+                            <p><strong>Importance</strong></p>
+                        </div>
+                        <div class="delete-container">
+                            <p><strong>Delete</strong></p>
+                        </div>
+                    </li>
+                </ul> 
 
-        <hr/>
-
-        <section>
-            <h2>Task List</h2>
-            <button id="completeButton" class="complete-button">Hide Completed Tasks</button>
-            <section class="to-do-list">
-            <div class="to-do-item center">
-                <h3 class="tick-container">Tick off!</h3>
-                <h3 class="to-do-text-container">Task</h3>
-                <h3 class="importance-container">Importance</h3>
-                <h3 class="delete-container">Delete</h3>
+                <ul id="to-do-list" class="to-do-list">
+                </ul>
             </div>
-        </section> 
-            <ul id="to-do-list" class="to-do-list">
-            </ul>
         </section>
     </main>
 
-    <hr/>
-
     <footer>
-        <footer>Footer innit</footer>
+        <div>Footer innit</div>
     </footer>
 </body>
 </html>
