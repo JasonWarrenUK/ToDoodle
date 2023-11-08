@@ -75,7 +75,7 @@ const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     localStorage.setItem('tasks', JSON.stringify(tasks));
     //display stored tasks
     displayListItems(tasks); 
-    console.log(localStorage.getItem('tasks'));
+    console.log("Local Storage Task List:" + localStorage.getItem('tasks'));
   });
 
 
@@ -173,7 +173,7 @@ function deleteTask(event) {
 
 
 /* List Filtering */
-  const completeButton = document.getElementById("completeButton");
+const completeButton = document.getElementById("completeButton");
 
 function toggleCompleteTasks() {
   let stillToDo = tasks.filter((item) => item.status === "open");
@@ -185,10 +185,10 @@ function toggleCompleteTasks() {
     displayListItems(tasks);
   }
 
-    console.log("Still to do:" + stillToDo);
-  }
+  console.log("Still to do:" + stillToDo);
+}
 
-  completeButton.addEventListener("click", toggleCompleteTasks);
+completeButton.addEventListener("click", toggleCompleteTasks);
 
 // Initial Page Load
 document.addEventListener('DOMContentLoaded', () => {
