@@ -39,7 +39,7 @@ const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 
 /* Task Creation Event Listener */
-  taskForm.addEventListener("submit", function (event) {
+  function createTask (event){
     event.preventDefault();//Prevent the page reloading
 
     const taskName = document.getElementById("taskName").value;
@@ -76,21 +76,22 @@ const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     //display stored tasks
     displayListItems(tasks); 
     console.log(localStorage.getItem('tasks'));
-  });
+  };
 
+  taskForm.addEventListener("submit", createTask);
 
 /* List Display */
-  function displayListItems(newList) {
+  function displayListItems(array) {
     //Clear the list
     toDoListContainer.innerHTML = "";
 
     //Generate a new list
-    newList.forEach((task) => {
+    array.forEach((task) => {
       let taskItem = document.createElement("li");
       taskItem.className = "to-do-item";
 
       if (task.status === "open") {
-        taskItem.innerHTML =
+        taskItem.innerHTML = 
         `<div class="tick-container">
           <img src="images/check-circle.svg"/>
         </div>
@@ -103,7 +104,7 @@ const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
         <div class="delete-container">
           <img src="images/delete.svg"/>
         </div>`;
-      } else /* We can re-enable this if we add more status types: if (task.status === "complete") */ {
+       } else {
         taskItem.innerHTML =
         `<div class="tick-container">
           <img src="images/check-circle-filled.svg"/>
@@ -167,13 +168,14 @@ function deleteTask(event) {
     if (correspondingTaskIndex !== -1) {
       tasks.splice(correspondingTaskIndex, 1);
       taskItem.remove();
+      localStorage.setItem('tasks', JSON.stringify(tasks));
     }
   }
 }
 
 
 /* List Filtering */
-  const completeButton = document.getElementById("completeButton");
+const completeButton = document.getElementById("completeButton");
 
 function toggleCompleteTasks() {
   let stillToDo = tasks.filter((item) => item.status === "open");
@@ -184,11 +186,11 @@ function toggleCompleteTasks() {
     completeButton.innerText = "Hide Completed Tasks";
     displayListItems(tasks);
   }
-
     console.log("Still to do:" + stillToDo);
   }
 
-  completeButton.addEventListener("click", toggleCompleteTasks);
+completeButton.addEventListener("click", toggleCompleteTasks);
+
 
 // Initial Page Load
 document.addEventListener('DOMContentLoaded', () => {
