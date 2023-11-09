@@ -96,7 +96,7 @@ function displayListItems(array) {
   array.forEach((task) => {
     let taskItem = document.createElement("li");
     taskItem.className = "to-do-item";
-    taskItem.id = task.name;
+    taskItem.id = task.id;
 
     if (task.status === "open") {
       taskItem.innerHTML = 
@@ -132,7 +132,7 @@ function displayListItems(array) {
     const iconComplete = taskItem.querySelector('.tick-container img');
     const iconDelete = taskItem.querySelector('.delete-container img');
 
-    iconComplete.addEventListener("click", completeTask);
+    iconComplete.addEventListener("click", completeTaskHTML);
     iconDelete.addEventListener("click", deleteTask);
     
     toDoListContainer.appendChild(taskItem);
@@ -141,13 +141,18 @@ function displayListItems(array) {
 
 
 /* Task Completion */
-function completeTask(event) {
+function completeTaskHTML(event) {
   const taskItem = event.target.closest(".to-do-item");
+  completeTaskJS(taskItem);
+  displayListItems(tasks);
+}
 
+function completeTaskJS(taskItem) {
   if (taskItem) {
     const taskName = taskItem.querySelector(".to-do-text-container p").textContent;
     const correspondingTask = tasks.find((task) => task.name === taskName);
     const tick = taskItem.querySelector(".tick-container img");
+    
     if (correspondingTask) {
       if (correspondingTask.status === "open") {
         correspondingTask.status = "complete";
@@ -158,8 +163,6 @@ function completeTask(event) {
       }
     }
   }
-
-  displayListItems(tasks);
 }
 
 

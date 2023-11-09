@@ -29,7 +29,6 @@ test("Toggling the filter hides completed tasks from the list", () => {
 //! Work In Progress
 
 test("Clicking on complete button marks the task as complete", () => {
-
   const mockTask = new Task("Mock Task", "2023-11-09", "normal");
   console.groupCollapsed("Before Pushing to Tasks");
     console.log("Name: " + mockTask.name);
@@ -48,6 +47,8 @@ test("Clicking on complete button marks the task as complete", () => {
   console.groupEnd();
 
   displayListItems(tasks);
+
+  
   // toggleCompleteTasks();
 
   // const completedTask = tasks.find((task) => task.status === "complete");
