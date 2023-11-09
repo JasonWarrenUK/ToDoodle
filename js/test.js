@@ -45,16 +45,27 @@ test("Clicking on complete button marks the task as complete", () => {
     console.log("Status: " + mockTask.status);
     console.log("Tasks in List: " + tasks.length);
   console.groupEnd();
+  
+  notEqual(mockTask.status, "complete", "Task should not be marked as complete");
 
   displayListItems(tasks);
 
-  
-  // toggleCompleteTasks();
+  const mockLi = document.getElementById(mockTask.id);
+  console.log("Task Li found: " + mockLi);
+  completeTaskJS(mockLi);
 
-  // const completedTask = tasks.find((task) => task.status === "complete");
-  // console.log("Finding Completed Task: " + completedTask)
+  console.groupCollapsed("After Completing Task");
+    console.log("Name: " + mockTask.name);
+    console.log("ID: " + mockTask.id);
+    console.log("Status: " + mockTask.status);
+    console.log("Tasks in List: " + tasks.length);
+  console.groupEnd();
 
-  // equal(completedTask.status, "complete", "Task should be marked as complete");
+  equal(mockTask.status, "complete", "Task should be marked as complete");
+
+  console.log("Tasks in List Before Deleting: " + tasks.length);
+  tasks.splice(tasks.findIndex(task => task.name === mockTask.name), 1);
+  console.log("Tasks in List After Deleting: " + tasks.length);
 });
 
 
