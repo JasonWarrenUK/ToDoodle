@@ -30,18 +30,19 @@ debugClearTasks.addEventListener("click", function (event) {
 
 
 /* Task Template */
-function Task(taskName, taskDateDue, taskImportance) {
+function Task(taskName, taskDateDue, taskImportance, taskId) {
   this.name = taskName;
   this.dateDue = taskDateDue;
   this.importance = taskImportance;
   this.status = "open";
   
   //* Generate a unique id for each task so that it can be searched in tests
-  this.id = this.name.replace(/\b(\w)\w*\b/g, '$1').replace(/\s/g, '');
-  while (this.id.length < 10) {
-    this.id += this.id;
-  }
-  this.id = this.id.slice(0, 10);
+  // this.id = this.name.replace(/\b(\w)\w*\b/g, '$1').replace(/\s/g, '');
+  // while (this.id.length < 10) {
+  //   this.id += this.id;
+  // }
+  // this.id = this.id.slice(0, 10);
+  this.id = taskId
 }
 
 
@@ -54,6 +55,8 @@ function createTask (event){
   let taskImportance = document.querySelector(
     'input[name="taskImportance"]:checked'
   );
+  const taskId = Math.random().toString(36).substring(2, 12);
+
 
   console.log("Task Name Submitted: " + taskName);
   console.log("Task Due Submitted: " + taskDateDue);
@@ -73,7 +76,7 @@ function createTask (event){
   console.log("Task Due Assigned: " + taskDateDue);
   console.log("Task Importance Assigned: " + taskImportance);
 
-  const newTask = new Task(taskName, taskDateDue, taskImportance);
+  const newTask = new Task(taskName, taskDateDue, taskImportance, taskId);
   console.log("Task to Be Pushed: " + newTask);
 
   //Push a new task to the stored list
@@ -101,7 +104,7 @@ function displayListItems(array) {
     if (task.status === "open") {
       taskItem.innerHTML = 
       `<div class="tick-container">
-        <img src="images/check-circle.svg"/>
+        <img src="images/check-circle.svg" id="${task.id}"/>
       </div>
       <div class="to-do-text-container">
         <p class="task-name">${task.name}</p>
@@ -143,15 +146,16 @@ function displayListItems(array) {
 /* Task Completion */
 function completeTaskHTML(event) {
   const taskItem = event.target.closest(".to-do-item");
-  completeTaskJS(taskItem);
+  const tickId = event.target.id
+  completeTaskJS(taskItem, tickId);
   displayListItems(tasks);
 }
 
-function completeTaskJS(taskItem) {
+function completeTaskJS(taskItem, tickId) {
   if (taskItem) {
-    const taskName = taskItem.querySelector(".to-do-text-container p").textContent;
-    const correspondingTask = tasks.find((task) => task.name === taskName);
-    const tick = taskItem.querySelector(".tick-container img");
+    //const taskName = taskItem.querySelector(".to-do-text-container p").textContent;
+    const correspondingTask = tasks.find((task) => task.id === tickId);
+    const tick = document.getElementById(tickId);
     
     if (correspondingTask) {
       if (correspondingTask.status === "open") {
