@@ -104,7 +104,7 @@ function displayListItems(array) {
     if (task.status === "open") {
       taskItem.innerHTML = 
       `<div class="tick-container">
-        <img src="images/check-circle.svg" id="${task.id}"/>
+        <img src="images/check-circle.svg"/>
       </div>
       <div class="to-do-text-container">
         <p class="task-name">${task.name}</p>
@@ -145,30 +145,31 @@ function displayListItems(array) {
 
 /* Task Completion */
 function completeTaskHTML(event) {
+  const targetTick = event.target;
   const taskItem = event.target.closest(".to-do-item");
-  const tickId = event.target.id
-  completeTaskJS(taskItem, tickId);
+  const taskId = taskItem.id;
+  completeTaskJS(taskItem, taskId, targetTick);
   displayListItems(tasks);
 }
 
-function completeTaskJS(taskItem, tickId) {
+function completeTaskJS(taskItem, taskId, targetTick) {
   if (taskItem) {
-    //const taskName = taskItem.querySelector(".to-do-text-container p").textContent;
-    const correspondingTask = tasks.find((task) => task.id === tickId);
-    const tick = document.getElementById(tickId);
     
+    const correspondingTask = tasks.find((task) => task.id === taskId);
+   
     if (correspondingTask) {
-      console.log("Task status before:", correspondingTask.status); // Debugging line
+      console.log("Task status before:", correspondingTask.status); 
       if (correspondingTask.status === "open") {
         correspondingTask.status = "closed";
-        tick.src = "images/check-circle-filled.svg";
+        targetTick.src = "images/check-circle-filled.svg";
         console.log(tasks)
         localStorage.setItem('tasks', JSON.stringify(tasks));
       } else  {
         correspondingTask.status = "open";
-        tick.src = "images/check-circle.svg";
+        targetTick.src = "images/check-circle.svg";
         localStorage.setItem('tasks', JSON.stringify(tasks));
       }
+      console.log("Task status after:", correspondingTask.status); 
     }
   }
   
@@ -177,21 +178,23 @@ function completeTaskJS(taskItem, tickId) {
 
 /* Task Deletion */
 function deleteTaskHTML(event){
+  
   const taskItem = event.target.closest(".to-do-item");
-  deleteTaskJS(taskItem);
+  const taskId = taskItem.id;
+  deleteTaskJS(taskItem, taskId);
+
 }
 
-function deleteTaskJS(taskItem){
+function deleteTaskJS(taskItem, taskId){
   if (taskItem) {
-    const taskName = taskItem.querySelector(".to-do-text-container p").textContent;
-    const correspondingTaskIndex = tasks.findIndex((task) => task.name === taskName);
-
+    const correspondingTaskIndex = tasks.findIndex((task) => task.id === taskId);
+    
     if (correspondingTaskIndex !== -1) {
       tasks.splice(correspondingTaskIndex, 1);
       taskItem.remove();
       localStorage.setItem('tasks', JSON.stringify(tasks));
     }
-  }
+  } 
 }
 
 
