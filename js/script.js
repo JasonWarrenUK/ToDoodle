@@ -133,7 +133,7 @@ function displayListItems(array) {
     const iconDelete = taskItem.querySelector('.delete-container img');
 
     iconComplete.addEventListener("click", completeTaskHTML);
-    iconDelete.addEventListener("click", deleteTask);
+    iconDelete.addEventListener("click", deleteTaskHTML);
     
     toDoListContainer.appendChild(taskItem);
   });
@@ -163,13 +163,18 @@ function completeTaskJS(taskItem) {
       }
     }
   }
+  
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 
 /* Task Deletion */
-function deleteTask(event) {
+function deleteTaskHTML(event){
   const taskItem = event.target.closest(".to-do-item");
+  deleteTaskJS(taskItem);
+}
 
+function deleteTaskJS(taskItem){
   if (taskItem) {
     const taskName = taskItem.querySelector(".to-do-text-container p").textContent;
     const correspondingTaskIndex = tasks.findIndex((task) => task.name === taskName);
