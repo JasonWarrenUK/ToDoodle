@@ -158,17 +158,20 @@ function completeTaskJS(taskItem, tickId) {
     const tick = document.getElementById(tickId);
     
     if (correspondingTask) {
+      console.log("Task status before:", correspondingTask.status); // Debugging line
       if (correspondingTask.status === "open") {
-        correspondingTask.status = "complete";
+        correspondingTask.status = "closed";
         tick.src = "images/check-circle-filled.svg";
-      } else {
+        console.log(tasks)
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+      } else  {
         correspondingTask.status = "open";
         tick.src = "images/check-circle.svg";
+        localStorage.setItem('tasks', JSON.stringify(tasks));
       }
     }
   }
   
-  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 
