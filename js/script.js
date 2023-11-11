@@ -52,7 +52,7 @@ function createTask (event){
   event.preventDefault();//Prevent the page reloading
 
   const taskName = document.getElementById("taskName").value;
-  const taskDateDue = document.getElementById("taskDateDue").value;
+  let taskDateDue = document.getElementById("taskDateDue").value;
   let taskImportance = document.querySelector(
     'input[name="taskImportance"]:checked'
   );
