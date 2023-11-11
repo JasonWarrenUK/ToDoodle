@@ -1,3 +1,7 @@
+@import "/css/coloursLight.css";
+@import "/css/fonts.css";
+/* colBase1-6, colMain1-5, colEnhance1-5, colDanger, colSuccess, colWarn, colInfo */
+
 :root{
   --radiusA: 5%;
   --widthA: 0.75rem;
@@ -8,9 +12,7 @@
   --widthF: 0.05rem;
 }
 
-
-/* ELEMENT DEFAULTS */
-  /* CONTAINER ELEMENTS */
+/* ELEMENTS */
   html {
     height: 100%;
     font-size: 16px;
@@ -18,33 +20,46 @@
   body {
     height: 100%;
     margin: 0;
+    background-color: var(--colBase3);
   }
-
   header {
     padding: var(--widthA);
+    background-color: var(--colBase2);
   }
   main {
     margin: var(--widthA);
     padding: var(--widthC);
   }
   footer {padding: var(--widthC);}
-
   section {
     margin: var(--widthA);border-radius: var(--radiusA);
-    box-shadow: -10px 10px 25px 10px var(--colour01);
     padding: var(--widthC);
+    background-color: var(--colBase2);
+    box-shadow: -10px 10px 25px 10px var(--colBase4);
   }
   div {
-    margin: var(--widthA);
+    /* margin: var(--widthA); */
     padding: var(--widthD);
   }
   form {
-    margin: var(--widthA);
+    /* margin: var(--widthA); */
     padding: var(--widthF);
   }
-
-  /* TEXT ELEMENTS */
-  ul {border: var(--widthF) dotted var(--colour01);}
+  button {
+    background-color: var(--colMain1);
+    font-family: 'Fira Code';
+  }
+  label {font-family: 'Fira Code';}
+  input {font-family: 'Fira Code';}
+  h1 {
+    color: var(--colMain2);
+    font-family: 'Gabarito';
+  }
+  :is(h2, h3, h4, h5, h6) {
+    color: var(--colEnhance1);
+    font-family: 'Gabarito';
+  }
+  p {font-family: 'Fira Code';}
 
 /* LAYOUT CLASSES */
   /* ALIGNMENT CLASSES */
@@ -104,7 +119,6 @@
     align-items: stretch;
     align-content: space-around;
 
-    border: var(--widthF) groove var(--colour02);
     padding: var(--widthE);
 
     list-style-type: none;
@@ -114,7 +128,6 @@
     display: flex;
     align-items: center;
     margin: var(--widthF);
-    border: var(--widthF) groove var(--colour04);
   }
   .tick-container {
     flex: 0 0 auto;
@@ -135,7 +148,12 @@
   }
   .delete-container > img {height: 2rem;}
 
-/* INBOX
+
+/* SELECT BY ID */
+#taskSubmit > input {background-color: var(--colMain1);}
+
+/*
+INBOX
   CURSORS
     cursor: alias
     cursor: cell
@@ -145,103 +163,4 @@
   TASKS
     transform: rotate(3deg) scale(0.7) skew(1deg) translate(-4px,6px);
   SELECTORS
-    :is(h1, h2, h3, h4, h5, h6) {}
-
-  COLOUR LIGHT
-    --colMain1: #ff8000;
-    --colMain2: #c7660d;
-    --colMain3: #924c11;
-    --colMain4: #603411;
-    --colMain5: #331e0d;
-
-    --colEnhance1: #0080ff;
-    --colEnhance2: #1b65c6;
-    --colEnhance3: #204b91;
-    --colEnhance4: #1d335f;
-    --colEnhance5: #151d31;
-
-    --colDanger: #b41c2b;
-    --colSuccess: #009f42;
-    --colWarn: #cc8800;
-    --colInfo: #388cfa;
-
-    --colBase1: #ffffff;
-    --colBase2: #c6c6c6;
-    --colBase3: #919191;
-    --colBase4: #5e5e5e;
-    --colBase5: #303030;
-    --colBase6: #000000;
-  
-  COLOUR DARK
-    --colMain1: 999999;
-    --colMain2: 999999;
-    --colMain3: 999999;
-    --colMain4: 999999;
-    --colMain5: 999999;
-
-    --colEnhance1: 999999;
-    --colEnhance2: 999999;
-    --colEnhance3: 999999;
-    --colEnhance4: 999999;
-    --colEnhance5: 999999;
-
-    --colDanger: 999999;
-    --colSuccess: 999999;
-    --colWarn: 999999;
-    --colInfo: 999999;
-    
-    --colBase1: 999999;
-    --colBase2: 999999;
-    --colBase3: 999999;
-    --colBase4: 999999;
-    --colBase5: 999999;
-    --colBase6: 999999;
-  COLOUR SCHEME X
-    --colMain1: 999999;
-    --colMain2: 999999;
-    --colMain3: 999999;
-    --colMain4: 999999;
-    --colMain5: 999999;
-
-    --colEnhance1: 999999;
-    --colEnhance2: 999999;
-    --colEnhance3: 999999;
-    --colEnhance4: 999999;
-    --colEnhance5: 999999;
-
-    --colDanger: 999999;
-    --colSuccess: 999999;
-    --colWarn: 999999;
-    --colInfo: 999999;
-    
-    --colBase1: 999999;
-    --colBase2: 999999;
-    --colBase3: 999999;
-    --colBase4: 999999;
-    --colBase5: 999999;
-    --colBase6: 999999;
-  COLOUR SCHEME X
-    --colMain1: 999999;
-    --colMain2: 999999;
-    --colMain3: 999999;
-    --colMain4: 999999;
-    --colMain5: 999999;
-
-    --colEnhance1: 999999;
-    --colEnhance2: 999999;
-    --colEnhance3: 999999;
-    --colEnhance4: 999999;
-    --colEnhance5: 999999;
-
-    --colDanger: 999999;
-    --colSuccess: 999999;
-    --colWarn: 999999;
-    --colInfo: 999999;
-    
-    --colBase1: 999999;
-    --colBase2: 999999;
-    --colBase3: 999999;
-    --colBase4: 999999;
-    --colBase5: 999999;
-    --colBase6: 999999;
 */
