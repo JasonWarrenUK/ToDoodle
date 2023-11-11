@@ -1,37 +1,76 @@
 :root{
   /* Colours */
-  --colourBorder: #000000;
-  --colourDebug: #ff9999;
+  --colour01: #201E1F;
+  --colour02: #FAAA8D;
+  --colour03: #FEEFDD;
+  --colour04: #50B2C0;
+  --colour05: #FF4000;
+  --colour06: #9F2042;
   /* Widths */
-  --widthDebug: 0.1rem;
-  --widthBoxMargin:0.75rem;
-  --widthBoxBorder:0.2rem;
-  --widthBoxPadding:0.5rem;
+  --widthA: 0.75rem;
+  --widthB: 0.60rem;
+  --widthC: 0.45rem;
+  --widthD: 0.30rem;
+  --widthE: 0.15rem;
+  --widthF: 0.05rem;
+  /* Radii */
+  --radiusA: 20%;
 }
 
-html {
-  font-size: 16px;
+html {font-size: 16px;}
+
+body {
+  /* margin: var(--widthA); */
+  background-color: var(--colour06);
+  /* padding: var(--widthC); */
 }
 
-body,
-header,
-main,
-footer,
-section,
-form,
+header {
+  /* margin: var(--widthA); */
+  /* border: var(--widthD) double var(--colour01); */
+  background-color: var(--colour03);
+  padding: var(--widthA);
+}
+
+main {
+  margin: var(--widthA);
+  /* border: var(--widthD) double var(--colour01); */
+  /* background-color: var(--colour03); */
+  padding: var(--widthC);
+}
+
+footer {
+  /* margin: var(--widthA); */
+  /* border: var(--widthD) double var(--colour01); */
+  /* background-color: var(--colour03); */
+  padding: var(--widthC);
+}
+
+section {
+  margin: var(--widthA);
+  /* border: var(--widthE) solid var(--colour01); */
+  border-radius: var(--radiusA);
+  background-color: var(--colour02);
+  padding: var(--widthC);
+  box-shadow: -10px 10px 25px 10px var(--colour01);
+}
+
 div {
-  margin: var(--widthBoxMargin);
-  border: var(--widthDebug) dashed var(--colourDebug);
-  padding: var(--widthBoxPadding);
+  margin: var(--widthA);
+  /* border: var(--widthF) dashed var(--colour01); */
+  /* background-color: var(--colour03); */
+  padding: var(--widthD);
 }
 
-div {
-  margin: var(--widthBoxMargin);
-  padding: var(--widthBoxPadding);
+form {
+  margin: var(--widthA);
+  /* border: var(--widthF) dotted var(--colour01); */
+  /* background-color: var(--colour03); */
+  padding: var(--widthF);
 }
 
-form div {
-  padding: 0;
+ul {
+  border: var(--widthF) dotted var(--colour01);
 }
 
 /* Utility classes */
@@ -42,47 +81,43 @@ form div {
         text-align: center;
     }
 
-  /* Stacks */
-    .stack-lg > *+* {
-      margin-top: 2rem;
-    }
-    .stack-md > *+* {
-      margin-top: 1rem;
-    }
-    .stack-sm > *+* {
-      margin-top: 0.5rem;
-    }
-
   /* Flex */
-    .formFlex {
+    .formParent {
       display: flex;
       flex-flow: row wrap;
-      justify-content: space-between;
-    }
-
-    .splitFlex {
-      display: flex;
-      justify-content: space-between;
-    }
-    .splitFlex > div {
-      flex: 1 1 40%;
-    }
-
-    .menuFlex {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: start;
+      justify-content: space-evenly;
       align-items: center;
     }
-    .menuFlex > div {
-      flex: 0 1 auto;
-    }
+    .formParent > * {flex: 1 1 auto;}
 
+    .menuParent {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .menuFlex > * {flex: 0 1 auto;}
+
+    .pageParent {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-evenly;
+      align-items: stretch;
+    }
+    .pageParent > * {flex: 0 1 45%;}
+
+    .splitParent {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .splitParent > * {flex: 1 1 40%;}
 
 /* To Do List */
   .to-do-list {
-    margin: var(--widthBoxMargin);
-    padding: var(--widthBoxPadding);
+    /* margin: var(--widthA); */
+    padding: var(--widthB);
   }
 
 /* Tasks */
@@ -92,21 +127,42 @@ form div {
     justify-content: space-evenly;
     align-items: stretch;
     align-content: space-around;
-    border: var(--widthDebug) dashed var(--colourDebug);
-    padding: 0;
+
+    border: var(--widthF) groove var(--colour02);
+    padding: var(--widthE);
+
     list-style-type: none;
     list-style-position:inside;
   }
 
-  .to-do-item > div {
+  .to-do-item > * {
     display: flex;
-    justify-content: center;
     align-items: center;
+    margin: var(--widthF);
+    border: var(--widthF) groove var(--colour04);
   }
 
-  .tick-container {flex: 0 0 auto;}
-  .delete-container {flex: 0 0 auto;}
-  .to-do-text-container {flex: 2 0 50%;}
-  .importance-container{flex: 1 0 auto;}
+  .tick-container {
+    flex: 0 0 auto;
+    justify-content: center;
+  }
+  .delete-container {
+    flex: 0 0 auto;
+    justify-content: center;
+  }
+  .to-do-text-container {
+    flex: 2 1 50%;
+  }
+  .importance-container{
+    flex: 1 1 auto;
+    justify-content: center;
+  }
 
-  .to-do-item img{height: 2rem;}
+  .tick-container > img,
+  .delete-container > img {height: 2rem;}
+
+  /* Text Elements */
+  /* :is(h1, h2, h3, h4, h5, h6) {
+    margin: var(--widthA);
+    padding: var(--widthD);
+  } */

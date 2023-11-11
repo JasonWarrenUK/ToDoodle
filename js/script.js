@@ -193,11 +193,11 @@ const completeButton = document.getElementById("completeButton");
 
 function toggleCompleteTasks() {
   let stillToDo = tasks.filter((item) => item.status === "open");
-  if (completeButton.innerText === "Hide Completed Tasks") {
-    completeButton.innerText = "Show Completed Tasks";
+  if (completeButton.innerText === "Hide Completed") {
+    completeButton.innerText = "Show Completed";
     displayListItems(stillToDo);
   } else {
-    completeButton.innerText = "Hide Completed Tasks";
+    completeButton.innerText = "Hide Completed";
     displayListItems(tasks);
   }
 
