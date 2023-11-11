@@ -1,13 +1,10 @@
-//Please can we keep whitespace between segments and indentation under comment headings? It really helps me read the code.
+let palette = "light";
 
-/* Set Variables */
-// let taskList = [];  Not needed if we use local storage
 const taskForm = document.querySelector("form");
 const toDoListContainer = document.getElementById("to-do-list");
 
 //get info from local storage (this is the new stored list)
 const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-
 
 
 /* Debug Tools */

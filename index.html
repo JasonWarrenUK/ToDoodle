@@ -3,19 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>ToDoodle</title>
-
     <link href="css/normalize.css" rel="stylesheet">
-    <!-- <link href="css/dark.css" rel="stylesheet"> -->
     <link href="css/style.css" rel="stylesheet">
-
     <script src="js/test-helpers.js" defer></script>
     <script src="js/script.js" defer></script>
     <script type="module" src="js/test.js" defer></script>
-    
 </head>
-
 <body>
 <header class="center wrapParent">
     <h1>ToDoodle</h1>
@@ -26,52 +20,44 @@
     <div class="pageParent">
         <!-- Input -->
         <section>
-            <div class="center">
-                <h2>New Task</h2>
-            </div>
-
+            <h2 class="center">Create Task</h2>
             <form id="taskCreator">
                 <div id="taskBasics" class="formParent">
                     <div id="taskFormName" class="center">
+                        <label for="taskName"><h3>Task</h3></label>
                         <input type="text" id="taskName" name="taskName" required>
-                        <br/>
-                        <label for="taskName">Task</label>
                     </div>
 
                     <div id="taskFormDue" class="center">
+                        <label for="taskDateDue"><h3>Due Date</h3></label>
                         <input type="date" id="taskDateDue" name="taskDateDue">
-                        <br/>
-                        <label for="taskDateDue">
-                            Due Date
-                        </label>
                     </div>
                 </div>
 
                 <div id="taskFormImportance" class="center">
-                    <p>Importance</p>
-
+                    <h3>Importance</h3>
                     <div id="taskImportance" class="formParent">
-                        <!-- 1 --> <div>
+                        <div><!-- 1 -->
                             <input type="radio" id="lowest" name="taskImportance" value="lowest">
                             <label for="lowest">Lowest</label>
                         </div>
 
-                        <!-- 2 --> <div>
+                        <div><!-- 2 -->
                             <input type="radio" id="low" name="taskImportance" value="low">
                             <label for="low">Low</label>
                         </div>
 
-                        <!-- 3 --> <div>
+                        <div><!-- 3 -->
                             <input type="radio" id="medium" name="taskImportance" value="medium">
                             <label for="medium">Normal</label>
                         </div>
 
-                        <!-- 4 --><div>
+                        <div><!-- 4 -->
                             <input type="radio" id="high" name="taskImportance" value="high">
                             <label for="high">High</label>
                         </div>
 
-                        <!-- 5 --> <div>
+                        <div><!-- 5 -->
                             <input type="radio" id="vital" name="taskImportance" value="vital">
                             <label for="vital">Vital</label>
                         </div>
