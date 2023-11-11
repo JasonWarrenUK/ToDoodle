@@ -1,31 +1,26 @@
 :root{
-/* WIDTH */
+  --radiusA: 5%;
   --widthA: 0.75rem;
   --widthB: 0.60rem;
   --widthC: 0.45rem;
   --widthD: 0.30rem;
   --widthE: 0.15rem;
   --widthF: 0.05rem;
-
-/* RADIUS */
-  --radiusA: 5%;
-
-/* COLOUR */
-  --colour01: #201E1F;
-  --colour02: #FAAA8D;
-  --colour03: #FEEFDD;
-  --colour04: #50B2C0;
-  --colour05: #FF4000;
-  --colour06: #9F2042;
 }
 
 
 /* ELEMENT DEFAULTS */
   /* CONTAINER ELEMENTS */
-  html {font-size: 16px;}
-  body {background-color: var(--colour06);}
+  html {
+    height: 100%;
+    font-size: 16px;
+  }
+  body {
+    height: 100%;
+    margin: 0;
+  }
+
   header {
-    background-color: var(--colour03);
     padding: var(--widthA);
   }
   main {
@@ -33,10 +28,10 @@
     padding: var(--widthC);
   }
   footer {padding: var(--widthC);}
+
   section {
     margin: var(--widthA);border-radius: var(--radiusA);
     box-shadow: -10px 10px 25px 10px var(--colour01);
-    background: radial-gradient(circle farthest-corner at center center, var(--colour03) 0%, var(--colour02) 130%);
     padding: var(--widthC);
   }
   div {
@@ -50,7 +45,6 @@
 
   /* TEXT ELEMENTS */
   ul {border: var(--widthF) dotted var(--colour01);}
-
 
 /* LAYOUT CLASSES */
   /* ALIGNMENT CLASSES */
@@ -69,7 +63,6 @@
     /* align-items: center; */
   }
   .formParent > * {flex: 1 1 auto;}
-
   .menuParent {
     display: flex;
     flex-flow: row nowrap;
@@ -77,7 +70,6 @@
     align-items: center;
   }
   .menuFlex > * {flex: 0 1 auto;}
-
   .pageParent {
     display: flex;
     flex-flow: row nowrap;
@@ -85,7 +77,6 @@
     align-items: stretch;
   }
   .pageParent > * {flex: 0 1 45%;}
-
   .splitParent {
     display: flex;
     flex-flow: row nowrap;
@@ -93,7 +84,13 @@
     align-items: center;
   }
   .splitParent > * {flex: 1 1 40%;}
-
+  .wrapParent {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .wrapParent > * {flex: 1 1 auto;}
 
 /* TASK LIST CLASSES */
   /* LIST */
@@ -119,7 +116,6 @@
     margin: var(--widthF);
     border: var(--widthF) groove var(--colour04);
   }
-
   .tick-container {
     flex: 0 0 auto;
     justify-content: center;
@@ -139,14 +135,113 @@
   }
   .delete-container > img {height: 2rem;}
 
+/* INBOX
+  CURSORS
+    cursor: alias
+    cursor: cell
+    cursor: copy;
+    cursor: help;
+    cursor: progress;
+  TASKS
+    transform: rotate(3deg) scale(0.7) skew(1deg) translate(-4px,6px);
+  SELECTORS
+    :is(h1, h2, h3, h4, h5, h6) {}
 
-/* INBOX */
-/* cursor: alias */
-/* cursor: cell */
-/* cursor: copy; */
-/* cursor: help; */
-/* cursor: progress; */
+  COLOUR LIGHT
+    --colMain1: #ff8000;
+    --colMain2: #c7660d;
+    --colMain3: #924c11;
+    --colMain4: #603411;
+    --colMain5: #331e0d;
 
-/* transform: rotate(3deg) scale(0.7) skew(1deg) translate(-4px,6px); */
+    --colEnhance1: #0080ff;
+    --colEnhance2: #1b65c6;
+    --colEnhance3: #204b91;
+    --colEnhance4: #1d335f;
+    --colEnhance5: #151d31;
 
-/* :is(h1, h2, h3, h4, h5, h6) {}*/
+    --colDanger: #b41c2b;
+    --colSuccess: #009f42;
+    --colWarn: #cc8800;
+    --colInfo: #388cfa;
+
+    --colBase1: #ffffff;
+    --colBase2: #c6c6c6;
+    --colBase3: #919191;
+    --colBase4: #5e5e5e;
+    --colBase5: #303030;
+    --colBase6: #000000;
+  
+  COLOUR DARK
+    --colMain1: 999999;
+    --colMain2: 999999;
+    --colMain3: 999999;
+    --colMain4: 999999;
+    --colMain5: 999999;
+
+    --colEnhance1: 999999;
+    --colEnhance2: 999999;
+    --colEnhance3: 999999;
+    --colEnhance4: 999999;
+    --colEnhance5: 999999;
+
+    --colDanger: 999999;
+    --colSuccess: 999999;
+    --colWarn: 999999;
+    --colInfo: 999999;
+    
+    --colBase1: 999999;
+    --colBase2: 999999;
+    --colBase3: 999999;
+    --colBase4: 999999;
+    --colBase5: 999999;
+    --colBase6: 999999;
+  COLOUR SCHEME X
+    --colMain1: 999999;
+    --colMain2: 999999;
+    --colMain3: 999999;
+    --colMain4: 999999;
+    --colMain5: 999999;
+
+    --colEnhance1: 999999;
+    --colEnhance2: 999999;
+    --colEnhance3: 999999;
+    --colEnhance4: 999999;
+    --colEnhance5: 999999;
+
+    --colDanger: 999999;
+    --colSuccess: 999999;
+    --colWarn: 999999;
+    --colInfo: 999999;
+    
+    --colBase1: 999999;
+    --colBase2: 999999;
+    --colBase3: 999999;
+    --colBase4: 999999;
+    --colBase5: 999999;
+    --colBase6: 999999;
+  COLOUR SCHEME X
+    --colMain1: 999999;
+    --colMain2: 999999;
+    --colMain3: 999999;
+    --colMain4: 999999;
+    --colMain5: 999999;
+
+    --colEnhance1: 999999;
+    --colEnhance2: 999999;
+    --colEnhance3: 999999;
+    --colEnhance4: 999999;
+    --colEnhance5: 999999;
+
+    --colDanger: 999999;
+    --colSuccess: 999999;
+    --colWarn: 999999;
+    --colInfo: 999999;
+    
+    --colBase1: 999999;
+    --colBase2: 999999;
+    --colBase3: 999999;
+    --colBase4: 999999;
+    --colBase5: 999999;
+    --colBase6: 999999;
+*/
