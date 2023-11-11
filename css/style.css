@@ -1,126 +1,105 @@
 :root{
-  /* Colours */
-  --colour01: #201E1F;
-  --colour02: #FAAA8D;
-  --colour03: #FEEFDD;
-  --colour04: #50B2C0;
-  --colour05: #FF4000;
-  --colour06: #9F2042;
-  /* Widths */
+/* WIDTH */
   --widthA: 0.75rem;
   --widthB: 0.60rem;
   --widthC: 0.45rem;
   --widthD: 0.30rem;
   --widthE: 0.15rem;
   --widthF: 0.05rem;
-  /* Radii */
-  --radiusA: 20%;
+
+/* RADIUS */
+  --radiusA: 5%;
+
+/* COLOUR */
+  --colour01: #201E1F;
+  --colour02: #FAAA8D;
+  --colour03: #FEEFDD;
+  --colour04: #50B2C0;
+  --colour05: #FF4000;
+  --colour06: #9F2042;
 }
 
-html {font-size: 16px;}
 
-body {
-  /* margin: var(--widthA); */
-  background-color: var(--colour06);
-  /* padding: var(--widthC); */
-}
-
-header {
-  /* margin: var(--widthA); */
-  /* border: var(--widthD) double var(--colour01); */
-  background-color: var(--colour03);
-  padding: var(--widthA);
-}
-
-main {
-  margin: var(--widthA);
-  /* border: var(--widthD) double var(--colour01); */
-  /* background-color: var(--colour03); */
-  padding: var(--widthC);
-}
-
-footer {
-  /* margin: var(--widthA); */
-  /* border: var(--widthD) double var(--colour01); */
-  /* background-color: var(--colour03); */
-  padding: var(--widthC);
-}
-
-section {
-  margin: var(--widthA);
-  /* border: var(--widthE) solid var(--colour01); */
-  border-radius: var(--radiusA);
-  background-color: var(--colour02);
-  padding: var(--widthC);
-  box-shadow: -10px 10px 25px 10px var(--colour01);
-}
-
-div {
-  margin: var(--widthA);
-  /* border: var(--widthF) dashed var(--colour01); */
-  /* background-color: var(--colour03); */
-  padding: var(--widthD);
-}
-
-form {
-  margin: var(--widthA);
-  /* border: var(--widthF) dotted var(--colour01); */
-  /* background-color: var(--colour03); */
-  padding: var(--widthF);
-}
-
-ul {
-  border: var(--widthF) dotted var(--colour01);
-}
-
-/* Utility classes */
-  /* Alignment */
-    .center{
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-
-  /* Flex */
-    .formParent {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-evenly;
-      align-items: center;
-    }
-    .formParent > * {flex: 1 1 auto;}
-
-    .menuParent {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .menuFlex > * {flex: 0 1 auto;}
-
-    .pageParent {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-evenly;
-      align-items: stretch;
-    }
-    .pageParent > * {flex: 0 1 45%;}
-
-    .splitParent {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .splitParent > * {flex: 1 1 40%;}
-
-/* To Do List */
-  .to-do-list {
-    /* margin: var(--widthA); */
-    padding: var(--widthB);
+/* ELEMENT DEFAULTS */
+  /* CONTAINER ELEMENTS */
+  html {font-size: 16px;}
+  body {background-color: var(--colour06);}
+  header {
+    background-color: var(--colour03);
+    padding: var(--widthA);
+  }
+  main {
+    margin: var(--widthA);
+    padding: var(--widthC);
+  }
+  footer {padding: var(--widthC);}
+  section {
+    margin: var(--widthA);border-radius: var(--radiusA);
+    box-shadow: -10px 10px 25px 10px var(--colour01);
+    background: radial-gradient(circle farthest-corner at center center, var(--colour03) 0%, var(--colour02) 130%);
+    padding: var(--widthC);
+  }
+  div {
+    margin: var(--widthA);
+    padding: var(--widthD);
+  }
+  form {
+    margin: var(--widthA);
+    padding: var(--widthF);
   }
 
-/* Tasks */
+  /* TEXT ELEMENTS */
+  ul {border: var(--widthF) dotted var(--colour01);}
+
+
+/* LAYOUT CLASSES */
+  /* ALIGNMENT CLASSES */
+  .center{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  /* FLEX CLASSES */
+  .formParent {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    justify-items: center;
+    /* align-items: center; */
+  }
+  .formParent > * {flex: 1 1 auto;}
+
+  .menuParent {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .menuFlex > * {flex: 0 1 auto;}
+
+  .pageParent {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+  }
+  .pageParent > * {flex: 0 1 45%;}
+
+  .splitParent {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .splitParent > * {flex: 1 1 40%;}
+
+
+/* TASK LIST CLASSES */
+  /* LIST */
+  .to-do-list {padding: var(--widthB);}
+
+  /* TASKS */
   .to-do-item {
     display: flex;
     flex-flow: row nowrap;
@@ -134,7 +113,6 @@ ul {
     list-style-type: none;
     list-style-position:inside;
   }
-
   .to-do-item > * {
     display: flex;
     align-items: center;
@@ -146,23 +124,29 @@ ul {
     flex: 0 0 auto;
     justify-content: center;
   }
-  .delete-container {
-    flex: 0 0 auto;
-    justify-content: center;
-  }
+  .tick-container > img {height: 2rem;}
   .to-do-text-container {
     flex: 2 1 50%;
+    padding-left: 1rem;
   }
   .importance-container{
     flex: 1 1 auto;
     justify-content: center;
   }
-
-  .tick-container > img,
+  .delete-container {
+    flex: 0 0 auto;
+    justify-content: center;
+  }
   .delete-container > img {height: 2rem;}
 
-  /* Text Elements */
-  /* :is(h1, h2, h3, h4, h5, h6) {
-    margin: var(--widthA);
-    padding: var(--widthD);
-  } */
+
+/* INBOX */
+/* cursor: alias */
+/* cursor: cell */
+/* cursor: copy; */
+/* cursor: help; */
+/* cursor: progress; */
+
+/* transform: rotate(3deg) scale(0.7) skew(1deg) translate(-4px,6px); */
+
+/* :is(h1, h2, h3, h4, h5, h6) {}*/
