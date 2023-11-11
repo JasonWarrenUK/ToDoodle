@@ -3,6 +3,7 @@
 /* Set Variables */
 // let taskList = [];  Not needed if we use local storage
 const taskForm = document.querySelector("form");
+//const submitTask = document.getElementById('taskSubmit');
 const toDoListContainer = document.getElementById("to-do-list");
 
 //get info from local storage (this is the new stored list)
@@ -85,7 +86,7 @@ function createTask (event){
   localStorage.setItem('tasks', JSON.stringify(tasks));
   //display stored tasks
   displayListItems(tasks); 
-  console.log("Local Storage Task List:" + localStorage.getItem('tasks'));
+  return(localStorage.getItem('tasks'));
 };
 
 taskForm.addEventListener("submit", createTask);
@@ -201,8 +202,8 @@ function deleteTaskJS(taskItem, taskId){
 /* List Filtering */
 const completeButton = document.getElementById("completeButton");
 
-function toggleCompleteTasks() {
-  let stillToDo = tasks.filter((item) => item.status === "open");
+function toggleCompleteTasks(array) {
+  let stillToDo = array.filter((item) => item.status === "open");
   if (completeButton.innerText === "Hide Completed") {
     completeButton.innerText = "Show Completed";
     displayListItems(stillToDo);
@@ -211,10 +212,12 @@ function toggleCompleteTasks() {
     displayListItems(tasks);
   }
 
-  console.log("Still to do:" + stillToDo);
+  return(stillToDo);
 }
 
-completeButton.addEventListener("click", toggleCompleteTasks);
+completeButton.addEventListener("click", function() {
+  toggleCompleteTasks(tasks);
+});
 
 
 // Initial Page Load

@@ -69,6 +69,7 @@ form {
   padding: var(--widthF);
 }
 
+
 ul {
   border: var(--widthF) dotted var(--colour01);
 }
@@ -160,6 +161,8 @@ ul {
 
   .tick-container > img,
   .delete-container > img {height: 2rem;}
+
+  
 
   /* Text Elements */
   /* :is(h1, h2, h3, h4, h5, h6) {
