@@ -17,112 +17,114 @@
 </head>
 
 <body>
-    <header class="center">
-        <h1>ToDoodle</h1>
-        <p>Say Toodle-Do to Your To-Dos</p>
-    </header>
+<header class="center wrapParent">
+    <h1>ToDoodle</h1>
+    <p>Say Toodle-Do to Your To-Dos</p>
+</header>
 
-    <main>
-        <div class="pageParent">
-            <!-- Input -->
-            <section>
-                <div class="center">
-                    <h2>New Task</h2>
+<main>
+    <div class="pageParent">
+        <!-- Input -->
+        <section>
+            <div class="center">
+                <h2>New Task</h2>
+            </div>
+
+            <form id="taskCreator">
+                <div id="taskBasics" class="formParent">
+                    <div id="taskFormName" class="center">
+                        <input type="text" id="taskName" name="taskName" required>
+                        <br/>
+                        <label for="taskName">Task</label>
+                    </div>
+
+                    <div id="taskFormDue" class="center">
+                        <input type="date" id="taskDateDue" name="taskDateDue">
+                        <br/>
+                        <label for="taskDateDue">
+                            Due Date
+                        </label>
+                    </div>
                 </div>
 
-                <form id="taskCreator">
-                    <div id="taskBasics" class="formParent">
-                        <div id="taskFormName">
-                            <label for="taskName">Task</label>
-                            <input type="text" id="taskName" name="taskName" required>
+                <div id="taskFormImportance" class="center">
+                    <p>Importance</p>
+
+                    <div id="taskImportance" class="formParent">
+                        <!-- 1 --> <div>
+                            <input type="radio" id="lowest" name="taskImportance" value="lowest">
+                            <label for="lowest">Lowest</label>
                         </div>
 
-                        <div id="taskFormDue">
-                            <label for="taskDateDue">Due Date</label>
-                            <input type="date" id="taskDateDue" name="taskDateDue">
+                        <!-- 2 --> <div>
+                            <input type="radio" id="low" name="taskImportance" value="low">
+                            <label for="low">Low</label>
+                        </div>
+
+                        <!-- 3 --> <div>
+                            <input type="radio" id="medium" name="taskImportance" value="medium">
+                            <label for="medium">Normal</label>
+                        </div>
+
+                        <!-- 4 --><div>
+                            <input type="radio" id="high" name="taskImportance" value="high">
+                            <label for="high">High</label>
+                        </div>
+
+                        <!-- 5 --> <div>
+                            <input type="radio" id="vital" name="taskImportance" value="vital">
+                            <label for="vital">Vital</label>
                         </div>
                     </div>
-
-                    <div id="taskFormImportance">
-                        <p>Importance</p>
-
-                        <div id="taskImportance" class="formParent">
-                            <!-- 1 --> <div>
-                                <input type="radio" id="lowest" name="taskImportance" value="lowest">
-                                <label for="lowest">Lowest</label>
-                            </div>
-
-                            <!-- 2 --> <div>
-                                <input type="radio" id="low" name="taskImportance" value="low">
-                                <label for="low">Low</label>
-                            </div>
-
-                            <!-- 3 --> <div>
-                                <input type="radio" id="medium" name="taskImportance" value="medium">
-                                <label for="medium">Normal</label>
-                            </div>
-
-                            <!-- 4 --><div>
-                                <input type="radio" id="high" name="taskImportance" value="high">
-                                <label for="high">High</label>
-                            </div>
-
-                            <!-- 5 --> <div>
-                                <input type="radio" id="vital" name="taskImportance" value="vital">
-                                <label for="vital">Vital</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="taskSubmit">
-                        <input type="submit" value="Create">
-                    </div>
-                </form>
-            </section>
-
-            <!-- Output -->
-            <section id="taskList">
-                <div id="taskListMenu" class="center">
-                    <h2 class>Task List</h2>
                 </div>
+
+                <div id="taskSubmit" class="center">
+                    <input type="submit" value="Create">
+                </div>
+            </form>
+        </section>
+
+        <!-- Output -->
+        <section id="taskList">
+            <div id="taskListMenu" class="center">
+                <h2 class>Task List</h2>
                 
-                <div id="taskListDisplay">
-                    <div class="center">
-                        <button id="completeButton" class="complete-button"></button>
-                    </div>
+                <button id="completeButton" class="complete-button center"></button>
+            </div>
+            
+            <div id="taskListDisplay">
+                <!-- <ul id="to-do-title" class="to-do-list">
+                    <li class="to-do-item center">
+                        <div class="tick-container">
+                            <p><strong>Tick Off!</strong></p>
+                        </div>
 
-                    <ul id="to-do-title" class="to-do-list">
-                        <li class="to-do-item center">
-                            <div class="tick-container">
-                                <p><strong>Tick Off!</strong></p>
-                            </div>
+                        <div class="to-do-text-container">
+                            <p><strong>Task</strong></p>
+                        </div>
 
-                            <div class="to-do-text-container">
-                                <p><strong>Task</strong></p>
-                            </div>
+                        <div class="importance-container">
+                            <p><strong>Importance</strong></p>
+                        </div>
 
-                            <div class="importance-container">
-                                <p><strong>Importance</strong></p>
-                            </div>
+                        <div class="delete-container">
+                            <p><strong>Delete</strong></p>
+                        </div>
+                    </li>
+                </ul> -->
 
-                            <div class="delete-container">
-                                <p><strong>Delete</strong></p>
-                            </div>
-                        </li>
-                    </ul>
+                <ul id="to-do-list" class="to-do-list">
+                </ul>
+            </div>
+        </section>
+    </div>
+</main>
 
-                    <ul id="to-do-list" class="to-do-list">
-                    </ul>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer class="center">
-        <div id="taskListDebug" class="center">
-            <button id="logTasks">Log Tasks</button>
-            <button id="clearTasks">Clear Tasks</button>
-        </div>
-    </footer>
+<footer class="center">
+    <div id="taskListDebug" class="center">
+        <button id="logTasks">Log Tasks</button>
+        <button id="clearTasks">Clear Tasks</button>
+    </div>
+</footer>
 </body>
 </html>
