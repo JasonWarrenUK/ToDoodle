@@ -152,91 +152,24 @@ test("Toggling filters completed tasks from the list", () => {
   equal(toggleCompleteTasks(testTasks2).length, expectedLength2, "If all closed, list is 0");
 });
 
-//TODO Write These
-test("Submitting a new task adds it to the list", () => {
-    // Mocking the localStorage object
-const localStorageMock = {
-    data: {}, // Store data in an object for mocking localStorage
-  
-    setItem: function (key, value) {
-      this.data[key] = value;
-    },
-  
-    getItem: function (key) {
-      return this.data[key];
-    },
-  };
-  
-  // Mocking the document object
-  const documentMock = {
-    getElementById: function (id) {
-      return { value: '' }; // Mocking an input element
-    },
-    createElement: function (tagName) {
-      return { checked: false, type: 'radio' }; // Mocking an input element for radio button
-    },
-    body: {
-      appendChild: function () {},
-      removeChild: function () {},
-    },
-  };
-  
-  // Mocking the global Math object
-  const MathMock = {
-    random: function () {
-      return 0.5; // Mocking Math.random() to always return 0.5 for consistent taskId
-    },
-  };
-  
-  // Mocking the Task class
-  function Task(name, dateDue, importance, id) {
-    this.name = name;
-    this.dateDue = dateDue;
-    this.importance = importance;
-    this.id = id;
-  }
-  
-  // Mocking the tasks array
-  const tasks = [];
-  
-  // Replace the real localStorage and document with the mocks
-  const originalLocalStorage = window.localStorage;
-  const originalDocument = window.document;
-  const originalMath = window.Math;
-  
-  // Use the localStorageMock as a wrapper
-  Object.defineProperty(window, 'localStorage', {
-    value: localStorageMock,
-    writable: true,
-  });
-  
-  window.document = documentMock;
-  window.Math = MathMock;
-  
-  // Run the createTask function
-  createTask(new Event('submit'));
-  
-  // Your assertions
-  // For example, you can check if localStorage.setItem was called with the expected values
-  if (localStorageMock.data.tasks) {
-    console.log('Test Passed: localStorage.setItem was called with the expected values.');
-  } else {
-    console.error('Test Failed: localStorage.setItem was not called with the expected values.');
-  }
-  
-  // Restore the original localStorage, document, and Math
-  window.localStorage = originalLocalStorage;
-  window.document = originalDocument;
-  window.Math = originalMath;
-  
-    
-// const submitButton = document.getElementById('taskSubmit')
-//   const taskNameInput = document.getElementById('taskName')
-//   const expected = 1
-//   submitButton.click()
-//   const actual = createTask().length
-//   taskNameInput.value = "Have some fun"
-  
 
-  //equal(.length, 1, "1 task added")
-});
+test("Submitting a new task adds it to the list", () => {
+const fakeEvent = { preventDefault: () => {} };
+
+document.getElementById = (id) => {
+    if (id === 'taskName') {
+      return { value: 'Fake task name' };
+    } else if (id === 'taskDateDue') {
+      return { value: '2023-11-15' };
+    } else {
+      return null; 
+    }
+  };
+
+  const result = createTask(fakeEvent);
+  const task = JSON.parse(result)[0];
+
+  equal(task.name, 'Fake task name');
+  equal(task.dateDue, '2023-11-15'); 
+  equal(task.importance, 'normal');
+})

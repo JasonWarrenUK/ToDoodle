@@ -52,16 +52,16 @@ function createTask (event){
   event.preventDefault();//Prevent the page reloading
 
   const taskName = document.getElementById("taskName").value;
-  let taskDateDue = document.getElementById("taskDateDue").value;
+  const taskDateDue = document.getElementById("taskDateDue").value;
   let taskImportance = document.querySelector(
     'input[name="taskImportance"]:checked'
   );
   const taskId = Math.random().toString(36).substring(2, 12);
 
 
-  console.log("Task Name Submitted: " + taskName);
-  console.log("Task Due Submitted: " + taskDateDue);
-  console.log("Task Importance Submitted: " + taskImportance);
+  // console.log("Task Name Submitted: " + taskName);
+  // console.log("Task Due Submitted: " + taskDateDue);
+  // console.log("Task Importance Submitted: " + taskImportance);
 
   // Set default values if they are not provided
   if (taskDateDue === "") {
@@ -73,9 +73,9 @@ function createTask (event){
     taskImportance = taskImportance.value;
   }
 
-  console.log("Task Name Assigned: " + taskName);
-  console.log("Task Due Assigned: " + taskDateDue);
-  console.log("Task Importance Assigned: " + taskImportance);
+  // console.log("Task Name Assigned: " + taskName);
+  // console.log("Task Due Assigned: " + taskDateDue);
+  // console.log("Task Importance Assigned: " + taskImportance);
 
   const newTask = new Task(taskName, taskDateDue, taskImportance, taskId);
   console.log("Task to Be Pushed: " + newTask);
