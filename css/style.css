@@ -1,4 +1,4 @@
-@import "/css/coloursLight.css";
+@import "/css/colours.css";
 @import "/css/fonts.css";
 /* colBase1-6, colMain1-5, colEnhance1-5, colDanger, colSuccess, colWarn, colInfo */
 
@@ -17,10 +17,12 @@
 /* ELEMENTS */
   html {
     height: 100%;
+    max-width: 100%;
     font-size: 16px;
   }
   body {
     height: 100%;
+    max-width: 100%;
     margin: 0;
     background-color: var(--colMain2);
   }
@@ -28,21 +30,33 @@
     padding: var(--widthA);
     background-color: var(--colEnhance1);
     margin: 0;
+    width: 100%;
   }
   main {
     margin: var(--widthA);
     padding: var(--widthC);
+    max-width: 100%;
   }
-  footer {padding: var(--widthC);}
+  footer {
+    display: none;
+    padding: var(--widthC);
+  }
   section {
     margin: var(--widthA);border-radius: var(--radiusA);
     padding: var(--widthC);
     padding-bottom: var(--widthA);
     background-color: var(--colBase2);
     box-shadow: -10px 10px 25px 10px var(--colMain4);
+    max-width: 100%;
   }
-  div {padding: var(--widthD);}
-  form {padding: var(--widthF);}
+  div {
+    padding: var(--widthD);
+    max-width: 100%;
+  }
+  form {
+    padding: var(--widthF);
+    max-width: 100%;
+  }
 
   button, #taskSubmit > input {
     background-color: var(--colEnhance1);
@@ -116,6 +130,7 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    max-width: 100%;
   }
 
   /* FLEX CLASSES */
@@ -125,36 +140,56 @@
     justify-content: space-evenly;
     justify-items: center;
     /* align-items: center; */
+    max-width: 100%;
   }
-  .formParent > * {flex: 1 1 auto;}
+  .formParent > * {
+    flex: 1 1 auto;
+    max-width: 100%;
+  }
   .menuParent {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    max-width: 100%;
   }
-  .menuFlex > * {flex: 0 1 auto;}
+  .menuFlex > * {
+    flex: 0 1 auto;
+    max-width: 100%;
+  }
   .pageParent {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
     align-items: start;
+    max-width: 100%;
   }
-  .pageParent > * {flex: 0 1 45%;}
+  .pageParent > * {
+    flex: 0 1 45%;
+    max-width: 100%;
+  }
   .splitParent {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    max-width: 100%;
   }
-  .splitParent > * {flex: 1 1 40%;}
+  .splitParent > * {
+    flex: 1 1 40%;
+    max-width: 100%;
+  }
   .wrapParent {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
     align-items: center;
+    max-width: 100%;
   }
-  .wrapParent > * {flex: 1 1 auto;}
+  .wrapParent > * {
+    flex: 1 1 auto;
+    max-width: 100%;
+  }
 
 /* TASK LIST CLASSES */
   /* LIST */
@@ -199,10 +234,6 @@
   .delete-container > img {height: 2rem;}
 
 
-
-/* SELECT BY ID */
-#taskListDebug {display: none;}
-
 /*
 INBOX
   CURSORS
@@ -219,43 +250,25 @@ INBOX
 /* Media queries  */
 
 @media (max-width: 500px){
-header {
-    padding:0;
-  }
-
-  main{
-    margin: 0px;
-  }
+  header {padding:0;}
+  main{margin: 0px;}
   div {
     margin:0;
     padding:0;
   }
-  #taskFormImportance{
-    padding: var(--widthA);
-  }
-  #taskImportance{
-    padding: var(--widthA);
-  }
-  #taskImportance div{
-    margin: var(--widthC);
-  }
-  .task-name{
-    margin:var(--widthD-small);
-  }
-  .to-do-text-container {
-    padding-left: var(--widthD);
-  }
+  .task-name{margin:var(--widthD-small);}
+  .to-do-text-container {padding-left: var(--widthD);}
+  #taskFormImportance{padding: var(--widthA);}
+  #taskImportance{padding: var(--widthA);}
+  #taskImportance div{margin: var(--widthC);}
 }
 
 @media (max-width: 800px){
+  main{overflow: scroll;}
   .pageParent {
-flex-direction: column;
-  
-  }
-  main{
-    overflow: scroll;
-  }
-  .wrapParent{
     flex-direction: column;
+    align-items: stretch;
+    max-width: 100%;
   }
+  .wrapParent{flex-direction: column;}
 }
