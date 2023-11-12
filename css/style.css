@@ -8,6 +8,7 @@
   --widthB: 0.60rem;
   --widthC: 0.45rem;
   --widthD: 0.30rem;
+  --widthD-small:0.2rem;
   --widthE: 0.15rem;
   --widthF: 0.05rem;
   
@@ -201,6 +202,7 @@ INBOX
   header {
     padding:0;
   }
+
   main{
     margin: 0px;
   }
@@ -209,10 +211,19 @@ INBOX
     padding:0;
   }
   #taskFormImportance{
-    padding: 1rem;
+    padding: var(--widthA);
   }
   #taskImportance{
-    padding:1rem;
+    padding: var(--widthA);
+  }
+  #taskImportance div{
+    margin: var(--widthC);
+  }
+  .task-name{
+    margin:var(--widthD-small);
+  }
+  .to-do-text-container {
+    padding-left: var(--widthD);
   }
 }
 
@@ -223,5 +234,8 @@ INBOX
   }
   main{
     overflow: scroll;
+  }
+  .wrapParent{
+    flex-direction: column;
   }
 }
