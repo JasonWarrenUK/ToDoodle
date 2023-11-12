@@ -22,21 +22,24 @@
     <div class="pageParent">
         <!-- Input -->
         <section>
-            <h2 class="center">Create Task</h2>
-            <form id="taskCreator">
+            <div class="center">
+                <h2>Create Task</h2>
+            </div>
+            
+            <form id="taskCreator" class="center">
                 <div id="taskBasics" class="formParent">
-                    <div id="taskFormName" class="center">
+                    <div id="taskFormName">
                         <label for="taskName"><h3>Task</h3></label>
                         <input type="text" id="taskName" name="taskName" required>
                     </div>
 
-                    <div id="taskFormDue" class="center">
+                    <div id="taskFormDue" >
                         <label for="taskDateDue"><h3>Due Date</h3></label>
                         <input type="date" id="taskDateDue" name="taskDateDue">
                     </div>
                 </div>
 
-                <div id="taskFormImportance" class="center">
+                <div id="taskFormImportance">
                     <h3>Importance</h3>
                     <div id="taskImportance" class="formParent">
                         <div><!-- 1 -->
@@ -58,20 +61,24 @@
                             <input type="radio" id="high" name="taskImportance" value="high">
                             <label for="high">High</label>
                         </div>
-
-                        <div><!-- 5 -->
+                      
+                      <div><!-- 5 -->
                             <input type="radio" id="vital" name="taskImportance" value="vital">
                             <label for="vital">Vital</label>
                         </div>
                     </div>
                 </div>
+                   
+                    <div>
+                        <button id="taskSubmit" type="submit">Create Task</button>
+                    </div>
+                 
+                </form>
+            </section>
 
-                <div id="taskSubmit" class="center">
-                    <input type="submit" value="Create">
-                </div>
-            </form>
-        </section>
 
+
+               
         <!-- Output -->
         <section id="taskList">
             <div id="taskListMenu" class="center">
