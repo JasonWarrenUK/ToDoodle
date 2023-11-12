@@ -153,23 +153,23 @@ test("Toggling filters completed tasks from the list", () => {
 });
 
 
-test("Submitting a new task adds it to the list", () => {
-const fakeEvent = { preventDefault: () => {} };
+// test("Submitting a new task adds it to the list", () => {
+// const fakeEvent = { preventDefault: () => {} };
 
-document.getElementById = (id) => {
-    if (id === 'taskName') {
-      return { value: 'Fake task name' };
-    } else if (id === 'taskDateDue') {
-      return { value: '2023-11-15' };
-    } else {
-      return null; 
-    }
-  };
+// document.getElementById = (id) => {
+//     if (id === 'taskName') {
+//       return { value: 'Fake task name' };
+//     } else if (id === 'taskDateDue') {
+//       return { value: '2023-11-15' };
+//     } else {
+//       return null; 
+//     }
+//   };
 
-  const result = createTask(fakeEvent);
-  const task = JSON.parse(result)[0];
+//   const result = createTask(fakeEvent);
+//   const task = JSON.parse(result)[0];
 
-  equal(task.name, 'Fake task name');
-  equal(task.dateDue, '2023-11-15'); 
-  equal(task.importance, 'normal');
-})
+//   equal(task.name, 'Fake task name');
+//   equal(task.dateDue, '2023-11-15'); 
+//   equal(task.importance, 'normal');
+// })

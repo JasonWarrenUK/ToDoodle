@@ -15,64 +15,6 @@
   --radiusA: 20%;
 }
 
-html {font-size: 16px;}
-
-body {
-  /* margin: var(--widthA); */
-  background-color: var(--colour06);
-  /* padding: var(--widthC); */
-}
-
-header {
-  /* margin: var(--widthA); */
-  /* border: var(--widthD) double var(--colour01); */
-  background-color: var(--colour03);
-  padding: var(--widthA);
-}
-
-main {
-  margin: var(--widthA);
-  /* border: var(--widthD) double var(--colour01); */
-  /* background-color: var(--colour03); */
-  padding: var(--widthC);
-}
-
-footer {
-  /* margin: var(--widthA); */
-  /* border: var(--widthD) double var(--colour01); */
-  /* background-color: var(--colour03); */
-  padding: var(--widthC);
-}
-
-section {
-  margin: var(--widthA);
-  /* border: var(--widthE) solid var(--colour01); */
-  border-radius: var(--radiusA);
-  background-color: var(--colour02);
-  padding: var(--widthC);
-  box-shadow: -10px 10px 25px 10px var(--colour01);
-}
-
-div {
-  margin: var(--widthA);
-  /* border: var(--widthF) dashed var(--colour01); */
-  /* background-color: var(--colour03); */
-  padding: var(--widthD);
-}
-
-form {
-  margin: var(--widthA);
-  /* border: var(--widthF) dotted var(--colour01); */
-  /* background-color: var(--colour03); */
-  padding: var(--widthF);
-}
-
-
-ul {
-  border: var(--widthF) dotted var(--colour01);
-
-}
-
 /* ELEMENTS */
   html {
     height: 100%;
@@ -121,6 +63,27 @@ ul {
     font-family: 'Gabarito';
   }
   p {font-family: 'Fira Code';}
+
+/* .trash-can */
+
+.trash-can:hover {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+}
 
 /* LAYOUT CLASSES */
   /* ALIGNMENT CLASSES */
@@ -227,3 +190,14 @@ INBOX
   SELECTORS
 */
 
+/* Media queries  */
+
+@media (max-width: 500px){
+
+}
+
+@media (max-width: 800px){
+  .pageParent {
+    flex-direction: column;
+  }
+}
