@@ -110,7 +110,7 @@ function displayListItems(array) {
         <p class="task-importance">${task.importance}</p>
       </div>
       <div class="delete-container">
-        <img src="images/delete.svg"/>
+        <img class="trash-can" src="images/delete.svg"/>
       </div>`;
       } else {
       taskItem.innerHTML =
@@ -124,7 +124,7 @@ function displayListItems(array) {
         <p class="task-importance">${task.importance}</p>
       </div>
       <div class="delete-container">
-        <img src="images/delete.svg"/>
+        <img class="trash-can" src="images/delete.svg"/>
       </div>`;
     }
 
