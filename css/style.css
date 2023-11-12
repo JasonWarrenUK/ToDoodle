@@ -26,9 +26,10 @@
     margin: 0;
     background-color: var(--colMain2);
   }
+
   header {
     padding: var(--widthA);
-    background-color: var(--colEnhance1);
+    background-color: var(--colEnhance0);
     margin: 0;
     width: 100%;
   }
@@ -37,16 +38,14 @@
     padding: var(--widthC);
     max-width: 100%;
   }
-  footer {
-    display: none;
-    padding: var(--widthC);
-  }
+  footer {display: none;}
+
   section {
     margin: var(--widthA);border-radius: var(--radiusA);
     padding: var(--widthC);
     padding-bottom: var(--widthA);
-    background-color: var(--colBase2);
-    box-shadow: -10px 10px 25px 10px var(--colMain4);
+    background-color: var(--colBase1);
+    box-shadow: -10px 10px 25px 10px var(--colMain3);
     max-width: 100%;
   }
   div {
@@ -59,23 +58,24 @@
   }
 
   button, #taskSubmit > input {
-    background-color: var(--colEnhance1);
-    border-color: var(--colEnhance2);
+    background-color: var(--colEnhanceX);
+    border-color: var(--colEnhance0);
     border-radius: var(--radiusB);
     padding: 0.5rem;
     font-family: 'Fira Code';
+    font-weight: bold;
   }
   button:hover, #taskSubmit > input:hover {
-    background-color: var(--colMain1);
-    border-color: var(--colMain2);
+    background-color: var(--colMainX);
+    border-color: var(--colMain0);
   }
 
   label {font-family: 'Fira Code';}
   input {font-family: 'Fira Code';}
   h1 {
     color: var(--colMain2);
-    -webkit-text-fill-color: var(--colMain1);
-    -webkit-text-stroke: 0.5px var(--colMain3);
+    -webkit-text-fill-color: var(--colMain0);
+    -webkit-text-stroke: 0.1px var(--colMain4);
     margin: auto;
     font-family: 'Gabarito', sans-serif;
     font-size: 5rem;
@@ -83,7 +83,7 @@
   h2 {
     color: var(--colEnhance2);
     -webkit-text-fill-color: var(--colEnhance1);
-    -webkit-text-stroke: 0.25px var(--colEnhance3);
+    -webkit-text-stroke: 0.10px var(--colEnhance4);
     font-family: 'Gabarito', sans-serif;
     font-size: 2rem;
   }
