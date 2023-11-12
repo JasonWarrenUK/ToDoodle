@@ -61,6 +61,27 @@
   }
   p {font-family: 'Fira Code';}
 
+/* .trash-can */
+
+.trash-can:hover {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+}
+
 /* LAYOUT CLASSES */
   /* ALIGNMENT CLASSES */
   .center{
@@ -149,6 +170,7 @@
   .delete-container > img {height: 2rem;}
 
 
+
 /* SELECT BY ID */
 #taskSubmit > input {background-color: var(--colMain1);}
 
@@ -164,3 +186,15 @@ INBOX
     transform: rotate(3deg) scale(0.7) skew(1deg) translate(-4px,6px);
   SELECTORS
 */
+
+/* Media queries  */
+
+@media (max-width: 500px){
+
+}
+
+@media (max-width: 800px){
+  .pageParent {
+    flex-direction: column;
+  }
+}
