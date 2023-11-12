@@ -30,12 +30,13 @@
     background-color: var(--colBase2);
   }
   main {
-    margin: var(--widthA);
+    margin: var(--widthA); 
     padding: var(--widthC);
   }
   footer {padding: var(--widthC);}
   section {
-    margin: var(--widthA);border-radius: var(--radiusA);
+    margin: var(--widthA);
+    border-radius: var(--radiusA);
     padding: var(--widthC);
     background-color: var(--colBase2);
     box-shadow: -10px 10px 25px 10px var(--colBase4);
@@ -84,6 +85,7 @@
         transform: rotate(5deg);
     }
 }
+
 
 /* LAYOUT CLASSES */
   /* ALIGNMENT CLASSES */
@@ -165,11 +167,14 @@
   .importance-container{
     flex: 1 1 auto;
     justify-content: center;
+    width:3rem;
   }
+  
   .delete-container {
     flex: 0 0 auto;
     justify-content: center;
   }
+  
   .delete-container > img {height: 2rem;}
 
 
@@ -193,11 +198,30 @@ INBOX
 /* Media queries  */
 
 @media (max-width: 500px){
-
+  header {
+    padding:0;
+  }
+  main{
+    margin: 0px;
+  }
+  div {
+    margin:0;
+    padding:0;
+  }
+  #taskFormImportance{
+    padding: 1rem;
+  }
+  #taskImportance{
+    padding:1rem;
+  }
 }
 
 @media (max-width: 800px){
   .pageParent {
     flex-direction: column;
+  
+  }
+  main{
+    overflow: scroll;
   }
 }

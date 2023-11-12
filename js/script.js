@@ -87,6 +87,25 @@ function createTask (event){
 
 taskForm.addEventListener("submit", createTask);
 
+function getColorForImportance(importance) {
+  switch (importance.toLowerCase()) {
+    case 'lowest':
+      return '#006600';
+    case 'low':
+      return '#00cc00';
+    case 'medium':
+      return '#ff9900';
+    case 'high':
+      return '#ff3300';
+      case 'vital':
+        return '#b30000';
+    default:
+      return 'black';
+  }
+}
+
+
+
 /* List Display */
 function displayListItems(array) {
   //Clear the list
@@ -97,6 +116,7 @@ function displayListItems(array) {
     let taskItem = document.createElement("li");
     taskItem.className = "to-do-item";
     taskItem.id = task.id;
+    const importanceColor = getColorForImportance(task.importance);
 
     if (task.status === "open") {
       taskItem.innerHTML = 
@@ -107,7 +127,7 @@ function displayListItems(array) {
         <p class="task-name">${task.name}</p>
       </div>
       <div class="importance-container">
-        <p class="task-importance">${task.importance}</p>
+        <p class="task-importance" style="color:${importanceColor}">${task.importance}</p>
       </div>
       <div class="delete-container">
         <img class="trash-can" src="images/delete.svg"/>
@@ -121,7 +141,7 @@ function displayListItems(array) {
         <p class="task-name">${task.name}</p>
       </div>
       <div class="importance-container">
-        <p class="task-importance">${task.importance}</p>
+        <p class="task-importance" style="color:${importanceColor}">${task.importance}</p>
       </div>
       <div class="delete-container">
         <img class="trash-can" src="images/delete.svg"/>
