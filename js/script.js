@@ -3,7 +3,6 @@
 /* Set Variables */
 // let taskList = [];  Not needed if we use local storage
 const taskForm = document.querySelector("form");
-//const submitTask = document.getElementById('taskSubmit');
 const toDoListContainer = document.getElementById("to-do-list");
 
 //get info from local storage (this is the new stored list)
