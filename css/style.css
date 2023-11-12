@@ -10,6 +10,67 @@
   --widthD: 0.30rem;
   --widthE: 0.15rem;
   --widthF: 0.05rem;
+  
+  /* Radii */
+  --radiusA: 20%;
+}
+
+html {font-size: 16px;}
+
+body {
+  /* margin: var(--widthA); */
+  background-color: var(--colour06);
+  /* padding: var(--widthC); */
+}
+
+header {
+  /* margin: var(--widthA); */
+  /* border: var(--widthD) double var(--colour01); */
+  background-color: var(--colour03);
+  padding: var(--widthA);
+}
+
+main {
+  margin: var(--widthA);
+  /* border: var(--widthD) double var(--colour01); */
+  /* background-color: var(--colour03); */
+  padding: var(--widthC);
+}
+
+footer {
+  /* margin: var(--widthA); */
+  /* border: var(--widthD) double var(--colour01); */
+  /* background-color: var(--colour03); */
+  padding: var(--widthC);
+}
+
+section {
+  margin: var(--widthA);
+  /* border: var(--widthE) solid var(--colour01); */
+  border-radius: var(--radiusA);
+  background-color: var(--colour02);
+  padding: var(--widthC);
+  box-shadow: -10px 10px 25px 10px var(--colour01);
+}
+
+div {
+  margin: var(--widthA);
+  /* border: var(--widthF) dashed var(--colour01); */
+  /* background-color: var(--colour03); */
+  padding: var(--widthD);
+}
+
+form {
+  margin: var(--widthA);
+  /* border: var(--widthF) dotted var(--colour01); */
+  /* background-color: var(--colour03); */
+  padding: var(--widthF);
+}
+
+
+ul {
+  border: var(--widthF) dotted var(--colour01);
+
 }
 
 /* ELEMENTS */
@@ -149,6 +210,7 @@
   .delete-container > img {height: 2rem;}
 
 
+
 /* SELECT BY ID */
 #taskSubmit > input {background-color: var(--colMain1);}
 
@@ -164,3 +226,4 @@ INBOX
     transform: rotate(3deg) scale(0.7) skew(1deg) translate(-4px,6px);
   SELECTORS
 */
+
