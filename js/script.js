@@ -12,7 +12,6 @@ const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 const debugLogTasks = document.getElementById("logTasks");
 debugLogTasks.addEventListener("click", function (event) {
   event.preventDefault();
-  console.log(tasks);
 });
 
 const debugClearTasks = document.getElementById("clearTasks");
@@ -54,11 +53,6 @@ function createTask (event){
   );
   const taskId = Math.random().toString(36).substring(2, 12);
 
-
-  // console.log("Task Name Submitted: " + taskName);
-  // console.log("Task Due Submitted: " + taskDateDue);
-  // console.log("Task Importance Submitted: " + taskImportance);
-
   // Set default values if they are not provided
   if (taskDateDue === "") {
     taskDateDue = null;
@@ -69,12 +63,7 @@ function createTask (event){
     taskImportance = taskImportance.value;
   }
 
-  // console.log("Task Name Assigned: " + taskName);
-  // console.log("Task Due Assigned: " + taskDateDue);
-  // console.log("Task Importance Assigned: " + taskImportance);
-
   const newTask = new Task(taskName, taskDateDue, taskImportance, taskId);
-  console.log("Task to Be Pushed: " + newTask);
 
   //Push a new task to the stored list
   tasks.push(newTask);
@@ -148,7 +137,6 @@ function displayListItems(array) {
       </div>`;
     }
 
-    /* const tick = taskItem.querySelector(".tick-container"); */
     const iconComplete = taskItem.querySelector('.tick-container img');
     const iconDelete = taskItem.querySelector('.delete-container img');
 
@@ -175,31 +163,24 @@ function completeTaskJS(taskItem, taskId, targetTick) {
     const correspondingTask = tasks.find((task) => task.id === taskId);
    
     if (correspondingTask) {
-      console.log("Task status before:", correspondingTask.status); 
       if (correspondingTask.status === "open") {
         correspondingTask.status = "closed";
         targetTick.src = "images/check-circle-filled.svg";
-        console.log(tasks)
-        localStorage.setItem('tasks', JSON.stringify(tasks));
       } else  {
         correspondingTask.status = "open";
         targetTick.src = "images/check-circle.svg";
         localStorage.setItem('tasks', JSON.stringify(tasks));
       }
-      console.log("Task status after:", correspondingTask.status); 
     }
   }
-  
 }
 
 
 /* Task Deletion */
 function deleteTaskHTML(event){
-  
   const taskItem = event.target.closest(".to-do-item");
   const taskId = taskItem.id;
   deleteTaskJS(taskItem, taskId);
-
 }
 
 function deleteTaskJS(taskItem, taskId){
