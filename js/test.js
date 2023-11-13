@@ -153,23 +153,14 @@ test("Toggling filters completed tasks from the list", () => {
 });
 
 
-// test("Submitting a new task adds it to the list", () => {
-// const fakeEvent = { preventDefault: () => {} };
-
-// document.getElementById = (id) => {
-//     if (id === 'taskName') {
-//       return { value: 'Fake task name' };
-//     } else if (id === 'taskDateDue') {
-//       return { value: '2023-11-15' };
-//     } else {
-//       return null; 
-//     }
-//   };
-
-//   const result = createTask(fakeEvent);
-//   const task = JSON.parse(result)[0];
-
-//   equal(task.name, 'Fake task name');
-//   equal(task.dateDue, '2023-11-15'); 
-//   equal(task.importance, 'normal');
-// })
+test("Submitting a new task adds it to the list", () => {
+  const fakeEvent = { preventDefault: () => {} };
+  const result = createTask(fakeEvent);
+  const result2 = createTask(fakeEvent);
+  console.log("result: ", result)
+  const task = JSON.parse(result)[0];
+  console.log("task: ", task)
+  equal(task.status, 'open');
+  equal(task.importance, 'normal'); 
+  equal(result2.length>result.length, true, "array gets longer createTask")
+})
