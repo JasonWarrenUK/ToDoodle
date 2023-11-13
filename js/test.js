@@ -11,6 +11,7 @@ test("Tasks from array show on screen", () => {
   equal(taskElement.classList.contains('to-do-item'), true, 'Task element has the correct class');
   equal(taskNameElement.textContent, 'test 1', 'Task name is correct');
   equal(taskImportanceElement.textContent, 'high', 'Task importance is correct');
+
 });
 
 // test("Clicking on complete button marks the task as complete", () => {
@@ -160,10 +161,12 @@ test("Submitting a new task adds it to the list", () => {
   
   button.click();
 
-  equal(tasks[0].status, 'open', "task added has correct status");
-  equal(tasks[0].importance, 'normal', "task added has correct importance"); 
-  equal(tasks[0].name, 'New fake task', "task added has correct name");
-
-  tasks.pop();
+  const fakeIndex = tasks.findIndex((task)=> task.name === "New fake task");
+  
+  equal(tasks[fakeIndex].status, 'open', "task added has correct status");
+  equal(tasks[fakeIndex].importance, 'normal', "task added has correct importance"); 
+  equal(tasks[fakeIndex].name, 'New fake task', "task added has correct name");
+  
+  tasks.splice(fakeIndex,1);
   input.value = ""
 })
