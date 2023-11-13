@@ -171,5 +171,5 @@ const fakeEvent = { preventDefault: () => {} };
   const task = JSON.parse(result)[0];
   console.log("task: ", task)
   equal(task.status, 'open');
-  equal(task.importance, 'normal');
+  equal(task.importance, 'normal'); 
 })
