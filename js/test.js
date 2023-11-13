@@ -153,8 +153,8 @@ test("Toggling filters completed tasks from the list", () => {
 });
 
 
-// test("Submitting a new task adds it to the list", () => {
-// const fakeEvent = { preventDefault: () => {} };
+test("Submitting a new task adds it to the list", () => {
+const fakeEvent = { preventDefault: () => {} };
 
 // document.getElementById = (id) => {
 //     if (id === 'taskName') {
@@ -166,10 +166,10 @@ test("Toggling filters completed tasks from the list", () => {
 //     }
 //   };
 
-//   const result = createTask(fakeEvent);
-//   const task = JSON.parse(result)[0];
-
-//   equal(task.name, 'Fake task name');
-//   equal(task.dateDue, '2023-11-15'); 
-//   equal(task.importance, 'normal');
-// })
+  const result = createTask(fakeEvent);
+  console.log("result: ", result)
+  const task = JSON.parse(result)[0];
+  console.log("task: ", task)
+  equal(task.status, 'open');
+  equal(task.importance, 'normal');
+})
