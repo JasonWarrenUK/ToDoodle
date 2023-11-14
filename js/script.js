@@ -3,9 +3,7 @@ let palette = "light";
 const taskForm = document.querySelector("form");
 const toDoListContainer = document.getElementById("to-do-list");
 
-//get info from local storage (this is the new stored list)
 const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-
 
 /* Debug Tools */
 //Console Log All Tasks in the Current List
@@ -15,8 +13,7 @@ debugLogTasks.addEventListener("click", function (event) {
 });
 
 const debugClearTasks = document.getElementById("clearTasks");
-debugClearTasks.addEventListener("click", function (event) {
-  /* event.preventDefault(); */
+debugClearTasks.addEventListener("click", function () {
   // Clear all items from the 'tasks' array
   tasks.length = 0;
 
@@ -31,20 +28,13 @@ function Task(taskName, taskDateDue, taskImportance, taskId) {
   this.dateDue = taskDateDue;
   this.importance = taskImportance;
   this.status = "open";
-  
-  //* Generate a unique id for each task so that it can be searched in tests
-  // this.id = this.name.replace(/\b(\w)\w*\b/g, '$1').replace(/\s/g, '');
-  // while (this.id.length < 10) {
-  //   this.id += this.id;
-  // }
-  // this.id = this.id.slice(0, 10);
   this.id = taskId
 }
 
 
 /* Task Creation Event Listener */
 function createTask (event){
-  event.preventDefault();//Prevent the page reloading
+  event.preventDefault();
 
   const taskName = document.getElementById("taskName").value;
   let taskDateDue = document.getElementById("taskDateDue").value;
@@ -65,25 +55,24 @@ function createTask (event){
 
   const newTask = new Task(taskName, taskDateDue, taskImportance, taskId);
 
-  //Push a new task to the stored list
   tasks.push(newTask);
-  //set the stored list
   localStorage.setItem('tasks', JSON.stringify(tasks));
-  //display stored tasks
   displayListItems(tasks); 
+
   return(localStorage.getItem('tasks'));
 };
 
 taskForm.addEventListener("submit", createTask);
 
+//Create colours to display importance
 function getColorForImportance(importance) {
   switch (importance.toLowerCase()) {
     case 'lowest':
-      return '#006600';
+      return '#6600cc';
     case 'low':
-      return '#00cc00';
-    case 'medium':
-      return '#ff9900';
+      return '#0033cc';
+    case 'normal':
+      return '#006600';
     case 'high':
       return '#ff3300';
       case 'vital':
