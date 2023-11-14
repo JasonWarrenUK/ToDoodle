@@ -11,6 +11,7 @@ test("Tasks from array show on screen", () => {
   equal(taskElement.classList.contains('to-do-item'), true, 'Task element has the correct class');
   equal(taskNameElement.textContent, 'test 1', 'Task name is correct');
   equal(taskImportanceElement.textContent, 'high', 'Task importance is correct');
+
 });
 
 // test("Clicking on complete button marks the task as complete", () => {
@@ -154,13 +155,18 @@ test("Toggling filters completed tasks from the list", () => {
 
 
 test("Submitting a new task adds it to the list", () => {
-  const fakeEvent = { preventDefault: () => {} };
-  const result = createTask(fakeEvent);
-  const result2 = createTask(fakeEvent);
-  console.log("result: ", result)
-  const task = JSON.parse(result)[0];
-  console.log("task: ", task)
-  equal(task.status, 'open');
-  equal(task.importance, 'normal'); 
-  equal(result2.length>result.length, true, "array gets longer createTask")
+  const button = document.getElementById('taskSubmit');
+  const input = document.getElementById('taskName');
+  input.value = "New fake task";
+  
+  button.click();
+
+  const fakeIndex = tasks.findIndex((task)=> task.name === "New fake task");
+  
+  equal(tasks[fakeIndex].status, 'open', "task added has correct status");
+  equal(tasks[fakeIndex].importance, 'normal', "task added has correct importance"); 
+  equal(tasks[fakeIndex].name, 'New fake task', "task added has correct name");
+  
+  tasks.splice(fakeIndex,1);
+  input.value = ""
 })
