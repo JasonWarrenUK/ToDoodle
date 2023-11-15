@@ -47,7 +47,6 @@
     background-color: var(--colBase1);
     box-shadow: -10px 10px 25px 10px var(--colMain3);
     max-width: 100%;
-    background-color: aliceblue;
   }
   div {
     padding: var(--widthD);

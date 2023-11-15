@@ -25,7 +25,7 @@
   --colInfo: #388cfa;
 
   --colBase0: #ffffff;
-  --colBase1: #e0e0e0;
+  --colBase1: aliceblue;
   --colBase2: #d6d6d6;
   --colBase3: #919191;
   --colBase4: #5e5e5e;
@@ -33,35 +33,35 @@
   --colBase6: #000000;
 }
 
+/* Dark Mode */
 @media screen and (prefers-color-scheme: dark) {
   :root {
-    --colMainX: #ffb000;
-    --colMain0: #ff9000;
-    --colMain1: #ff8000;
-    --colMain2: #c7660d;
-    --colMain3: #924c11;
+    --colMainX: #ff9000;
+    --colMain0: #ff8000;
+    --colMain1: #c7660d;
+    --colMain2: #924c11;
+    --colMain3: #3f3f3f;
     --colMain4: #603411;
     --colMain5: #331e0d;
 
-    --colEnhanceX: #00b0ff;
-    --colEnhance0: #0090ff;
-    --colEnhance1: #0080ff;
-    --colEnhance2: #1b65c6;
-    --colEnhance3: #204b91;
-    --colEnhance4: #1d335f;
-    --colEnhance5: #151d31;
+    --colEnhanceX: #0080ff;
+    --colEnhance1: #1b65c6;
+    --colEnhance2: #204b91;
+    --colEnhance3: #1d335f;
+    --colEnhance4: #151d31;
+    --colEnhance5: #121212;
 
     --colDanger: #b41c2b;
     --colSuccess: #009f42;
     --colWarn: #cc8800;
     --colInfo: #388cfa;
 
-    --colBase0: #ffffff;
-    --colBase1: #e0e0e0;
-    --colBase2: #d6d6d6;
+    --colBase0: #000000;
+    --colBase1: #919191;
+    --colBase2: #5e5e5e;
     --colBase3: #919191;
-    --colBase4: #5e5e5e;
-    --colBase5: #303030;
-    --colBase6: #000000;
+    --colBase4: #d6d6d6;
+    --colBase5: #e0e0e0;
+    --colBase6: #1b65c6;
   }
 }
