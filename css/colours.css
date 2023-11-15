@@ -1,5 +1,5 @@
 :root {
-  color-scheme: light /* dark */;
+  color-scheme: light dark;
 }
 
 :root {/* Light Mode */
@@ -33,7 +33,7 @@
   --colBase6: #000000;
 }
 
-/* @media screen and (prefers-color-scheme: dark) {
+@media screen and (prefers-color-scheme: dark) {
   :root {
     --colMainX: #ffb000;
     --colMain0: #ff9000;
@@ -64,4 +64,4 @@
     --colBase5: #303030;
     --colBase6: #000000;
   }
-} */
+}
