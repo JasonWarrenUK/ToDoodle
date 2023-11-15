@@ -1,131 +1,141 @@
 <!DOCTYPE html>
 <html lang="en-uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
 
     <title>ToDoodle</title>
 
-    <meta name="description" content="A small task manager with due dates, importance and list filtering.">
+    <meta
+      name="description"
+      content="A small task manager with due dates, importance and list filtering."
+    />
 
-    <link href="css/normalize.css" rel="stylesheet">
-    <link href="css/fonts.css" rel="stylesheet">
-    <link href="css/colours.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet" />
+    <link href="css/fonts.css" rel="stylesheet" />
+    <link href="css/colours.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
 
     <script src="js/test-helpers.js" defer></script>
     <script src="js/script.js" defer></script>
     <script type="module" src="js/test.js" defer></script>
-</head>
-<body>
-<header class="center wrapParent">
-    <h1>ToDoodle</h1>
-    <pre>Say Toodle-Do to Your To-Dos</pre>
-</header>
+  </head>
+  <body>
+    <header class="center wrapParent">
+      <h1>ToDoodle</h1>
+      <pre>Say Toodle-Do to Your To-Dos</pre>
+    </header>
 
-<main>
-    <div class="pageParent">
+    <main>
+      <div class="pageParent">
         <!-- Input -->
         <section>
-            <div class="center">
-                <h2>Create Task</h2>
+          <div class="center">
+            <h2>Create Task</h2>
+          </div>
+
+          <form id="taskCreator" class="center">
+            <div id="taskBasics" class="formParent">
+              <div id="taskFormName">
+                <label for="taskName"><h3>Task</h3></label>
+                <input type="text" id="taskName" name="taskName" required />
+              </div>
+
+              <div id="taskFormDue">
+                <label for="taskDateDue"><h3>Due Date</h3></label>
+                <input type="date" id="taskDateDue" name="taskDateDue" />
+              </div>
             </div>
-            
-            <form id="taskCreator" class="center">
-                <div id="taskBasics" class="formParent">
-                    <div id="taskFormName">
-                        <label for="taskName"><h3>Task</h3></label>
-                        <input type="text" id="taskName" name="taskName" required>
-                    </div>
 
-                    <div id="taskFormDue" >
-                        <label for="taskDateDue"><h3>Due Date</h3></label>
-                        <input type="date" id="taskDateDue" name="taskDateDue">
-                    </div>
+            <div id="taskFormImportance">
+              <h3>Importance</h3>
+              <div id="taskImportance" class="formParent">
+                <div>
+                  <!-- 1 -->
+                  <input
+                    type="radio"
+                    id="lowest"
+                    name="taskImportance"
+                    value="lowest"
+                  />
+                  <label for="lowest">Lowest</label>
                 </div>
 
-                <div id="taskFormImportance">
-                    <h3>Importance</h3>
-                    <div id="taskImportance" class="formParent">
-                        <div><!-- 1 -->
-                            <input type="radio" id="lowest" name="taskImportance" value="lowest">
-                            <label for="lowest">Lowest</label>
-                        </div>
-
-                        <div><!-- 2 -->
-                            <input type="radio" id="low" name="taskImportance" value="low">
-                            <label for="low">Low</label>
-                        </div>
-
-                        <div><!-- 3 -->
-                            <input type="radio" id="medium" name="taskImportance" value="medium">
-                            <label for="medium">Normal</label>
-                        </div>
-
-                        <div><!-- 4 -->
-                            <input type="radio" id="high" name="taskImportance" value="high">
-                            <label for="high">High</label>
-                        </div>
-                      
-                      <div><!-- 5 -->
-                            <input type="radio" id="vital" name="taskImportance" value="vital">
-                            <label for="vital">Vital</label>
-                        </div>
-                    </div>
+                <div>
+                  <!-- 2 -->
+                  <input
+                    type="radio"
+                    id="low"
+                    name="taskImportance"
+                    value="low"
+                  />
+                  <label for="low">Low</label>
                 </div>
-                   
-                    <div>
-                        <button id="taskSubmit" type="submit">Create Task</button>
-                    </div>
-                 
-                </form>
-            </section>
 
+                <div>
+                  <!-- 3 -->
+                  <input
+                    type="radio"
+                    id="normal"
+                    name="taskImportance"
+                    value="normal"
+                  />
+                  <label for="normal">Normal</label>
+                </div>
 
+                <div>
+                  <!-- 4 -->
+                  <input
+                    type="radio"
+                    id="high"
+                    name="taskImportance"
+                    value="high"
+                  />
+                  <label for="high">High</label>
+                </div>
 
-               
+                <div>
+                  <!-- 5 -->
+                  <input
+                    type="radio"
+                    id="vital"
+                    name="taskImportance"
+                    value="vital"
+                  />
+                  <label for="vital">Vital</label>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <button id="taskSubmit" type="submit">Create Task</button>
+            </div>
+          </form>
+        </section>
+
         <!-- Output -->
         <section id="taskList">
-            <div id="taskListMenu" class="center">
-                <h2 class>Task List</h2>
-                
-                <button id="completeButton" class="complete-button center">Hide Completed</button>
-            </div>
-            
-            <div id="taskListDisplay">
-                <!-- <ul id="to-do-title" class="to-do-list">
-                    <li class="to-do-item center">
-                        <div class="tick-container">
-                            <p><strong>Tick Off!</strong></p>
-                        </div>
+          <div id="taskListMenu" class="center">
+            <h2 class>Task List</h2>
 
-                        <div class="to-do-text-container">
-                            <p><strong>Task</strong></p>
-                        </div>
+            <button id="completeButton" class="complete-button center">
+              Hide Completed
+            </button>
+          </div>
 
-                        <div class="importance-container">
-                            <p><strong>Importance</strong></p>
-                        </div>
-
-                        <div class="delete-container">
-                            <p><strong>Delete</strong></p>
-                        </div>
-                    </li>
-                </ul> -->
-
-                <ul id="to-do-list" class="to-do-list">
-                </ul>
-            </div>
+          <div id="taskListDisplay">
+            <ul id="to-do-list" class="to-do-list"></ul>
+          </div>
         </section>
-    </div>
-</main>
+      </div>
+    </main>
 
-<footer class="center">
-    <div id="taskListDebug" class="center">
+    <footer class="center">
+      <div id="taskListDebug" class="center">
         <button id="logTasks">Log Tasks</button>
         <button id="clearTasks">Clear Tasks</button>
-    </div>
-</footer>
-</body>
+      </div>
+    </footer>
+  </body>
 </html>
