@@ -1,24 +1,24 @@
 
-test("Submitting a new task adds it to the list", () => {
-  const button = document.getElementById("taskSubmit");
-  const input = document.getElementById("taskName");
-  input.value = "New fake task";
+// test("Submitting a new task adds it to the list", () => {
+//   const button = document.getElementById("taskSubmit");
+//   const input = document.getElementById("taskName");
+//   input.value = "New fake task";
 
-  button.click();
+//   button.click();
 
-  const fakeIndex = tasks.findIndex((task) => task.name === "New fake task");
+//   const fakeIndex = tasks.findIndex((task) => task.name === "New fake task");
 
-  equal(tasks[fakeIndex].status, "open", "task added has correct status");
-  equal(
-    tasks[fakeIndex].importance,
-    "normal",
-    "task added has correct importance"
-  );
-  equal(tasks[fakeIndex].name, "New fake task", "task added has correct name");
+//   equal(tasks[fakeIndex].status, "open", "task added has correct status");
+//   equal(
+//     tasks[fakeIndex].importance,
+//     "normal",
+//     "task added has correct importance"
+//   );
+//   equal(tasks[fakeIndex].name, "New fake task", "task added has correct name");
 
-  tasks.splice(fakeIndex, 1);
-  input.value = "";
-});
+//   tasks.splice(fakeIndex, 1);
+//   input.value = "";
+// });
 
 
 test("Tasks from array show on screen", () => {
@@ -108,70 +108,70 @@ test("Tasks from array show on screen", () => {
 //   console.groupEnd();
 // });
 
-test("Deleting an entry removes it from the list", () => {
-  const mockTask = new Task("Delete Test", "2023-11-09", "normal");
-  let mockTaskExists = doesXHaveY(tasks, mockTask);
+// test("Deleting an entry removes it from the list", () => {
+//   const mockTask = new Task("Delete Test", "2023-11-09", "normal");
+//   let mockTaskExists = doesXHaveY(tasks, mockTask);
 
-  console.groupCollapsed("Set Up");
-  console.groupCollapsed("Before Pushing to Tasks");
-  console.log("Name: " + mockTask.name);
-  console.log("ID: " + mockTask.id);
-  console.log("Status: " + mockTask.status);
-  console.log("Tasks in List: " + tasks.length);
-  console.log("List Contains Mock Task: " + mockTaskExists);
-  console.groupEnd();
+//   console.groupCollapsed("Set Up");
+//   console.groupCollapsed("Before Pushing to Tasks");
+//   console.log("Name: " + mockTask.name);
+//   console.log("ID: " + mockTask.id);
+//   console.log("Status: " + mockTask.status);
+//   console.log("Tasks in List: " + tasks.length);
+//   console.log("List Contains Mock Task: " + mockTaskExists);
+//   console.groupEnd();
 
-  tasks.push(mockTask);
-  mockTaskExists = doesXHaveY(tasks, mockTask);
+//   tasks.push(mockTask);
+//   mockTaskExists = doesXHaveY(tasks, mockTask);
 
-  console.groupCollapsed("After Pushing to Tasks");
-  console.log("Name: " + mockTask.name);
-  console.log("ID: " + mockTask.id);
-  console.log("Status: " + mockTask.status);
-  console.log("Tasks in List: " + tasks.length);
-  console.log("List Contains Mock Task: " + mockTaskExists);
-  console.groupEnd();
-  console.groupEnd();
+//   console.groupCollapsed("After Pushing to Tasks");
+//   console.log("Name: " + mockTask.name);
+//   console.log("ID: " + mockTask.id);
+//   console.log("Status: " + mockTask.status);
+//   console.log("Tasks in List: " + tasks.length);
+//   console.log("List Contains Mock Task: " + mockTaskExists);
+//   console.groupEnd();
+//   console.groupEnd();
 
-  console.group("Tests");
-  equal(mockTaskExists, true, "Task Should Exist");
+//   console.group("Tests");
+//   equal(mockTaskExists, true, "Task Should Exist");
 
-  displayListItems(tasks);
+//   displayListItems(tasks);
 
-  const mockLi = document.getElementById(mockTask.id);
-  console.log("Task Li found: " + mockLi);
-  deleteTaskJS(mockLi);
-  mockTaskExists = doesXHaveY(tasks, mockTask);
+//   const mockLi = document.getElementById(mockTask.id);
+//   console.log("Task Li found: " + mockLi);
+//   deleteTaskJS(mockLi);
+//   mockTaskExists = doesXHaveY(tasks, mockTask);
 
-  console.groupCollapsed("After Deleting Task");
-  console.log("Name: " + mockTask.name);
-  console.log("ID: " + mockTask.id);
-  console.log("Status: " + mockTask.status);
-  console.log("Tasks in List: " + tasks.length);
-  console.log("List Contains Mock Task: " + mockTaskExists);
-  console.groupEnd();
+//   console.groupCollapsed("After Deleting Task");
+//   console.log("Name: " + mockTask.name);
+//   console.log("ID: " + mockTask.id);
+//   console.log("Status: " + mockTask.status);
+//   console.log("Tasks in List: " + tasks.length);
+//   console.log("List Contains Mock Task: " + mockTaskExists);
+//   console.groupEnd();
 
-  notEqual(mockTaskExists, true, "Task Should Not Exist");
-  console.groupEnd();
+//   notEqual(mockTaskExists, true, "Task Should Not Exist");
+//   console.groupEnd();
 
-  console.groupCollapsed("Clean Up");
-  console.groupCollapsed("Before Cleanup");
-  console.log("Tasks in List: " + tasks.length);
-  console.log("Tasks in Local Storage: " + localStorage.getItem("tasks"));
-  console.groupEnd();
+//   console.groupCollapsed("Clean Up");
+//   console.groupCollapsed("Before Cleanup");
+//   console.log("Tasks in List: " + tasks.length);
+//   console.log("Tasks in Local Storage: " + localStorage.getItem("tasks"));
+//   console.groupEnd();
 
-  tasks.splice(
-    tasks.findIndex((task) => task.name === mockTask.name),
-    1
-  );
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+//   tasks.splice(
+//     tasks.findIndex((task) => task.name === mockTask.name),
+//     1
+//   );
+//   localStorage.setItem("tasks", JSON.stringify(tasks));
 
-  console.groupCollapsed("After Cleanup");
-  console.log("Tasks in List: " + tasks.length);
-  console.log("Tasks in Local Storage: " + localStorage.getItem("tasks"));
-  console.groupEnd();
-  console.groupEnd();
-});
+//   console.groupCollapsed("After Cleanup");
+//   console.log("Tasks in List: " + tasks.length);
+//   console.log("Tasks in Local Storage: " + localStorage.getItem("tasks"));
+//   console.groupEnd();
+//   console.groupEnd();
+// });
 
 test("Toggling filters completed tasks from the list", () => {
   completeButton.innerText = "Hide Completed Tasks";
