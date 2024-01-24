@@ -4,15 +4,6 @@
 
 > Lightweight Task Manager
 
-## Sections to Include
-
-- [x] Title
-- [x] Description
-- [ ] Why (Motivation/Goal/Problem to Solve)
-- [x] Quick Start
-- [x] Usage
-- [ ] Contributing
-
 ## Features
 
 Here're some of the project's best features:
