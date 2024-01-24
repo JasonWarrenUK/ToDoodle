@@ -51,6 +51,8 @@ Customize ToDoodle to fit your preferences:
 - **Style:** Edit `style.css` to change colors, fonts, and overall aesthetics.
 - **Functionality:** Extend ToDoodle's features by editing `script.js`. Add new features like categories, reminders, or additional task attributes to suit your needs.
 
+## Contributing
+
 ## Built With
 
 Technologies used in the project:
@@ -58,5 +60,3 @@ Technologies used in the project:
 - `JavaScript`
 - `HTML`
 - `CSS`
-
-## Contributing
