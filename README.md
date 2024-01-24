@@ -58,3 +58,5 @@ Technologies used in the project:
 - `JavaScript`
 - `HTML`
 - `CSS`
+
+## Contributing
